@@ -1,5 +1,4 @@
 # avila_et_al_2026_pyWBM_yield
-this is the code for avila et al 2026 pyWBM yields. 
 
 Theo Avila<sup>1*</sup>, David Lafferty<sup>2</sup>, Ryan L. Sriver<sup>3</sup><br>
 
@@ -8,3 +7,6 @@ Theo Avila<sup>1*</sup>, David Lafferty<sup>2</sup>, Ryan L. Sriver<sup>3</sup><
 <sup>3</sup> Department of Climate, Meteorology and Atmospheric Sciences, University of Illinois at Urbana‐Champaign, Urbana, IL, United States of America<br>
 
 <sup>*</sup> corresponding author: ctavila2@illinois.edu
+
+
+this is the code for avila et al 2026 pyWBM yields. 
