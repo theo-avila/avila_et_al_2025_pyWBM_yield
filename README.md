@@ -1,4 +1,5 @@
 # avila_et_al_2026_pyWBM_yield
+**Compounding Uncertainity in Coupled Yield Models**
 
 Theo Avila<sup>1*</sup>, Tahsina Alam<sup>2</sup>, David Lafferty<sup>3</sup>, Ryan L. Sriver<sup>4</sup><br>
 
