@@ -1,0 +1,4 @@
+Sourcing Conda
+Activating WFPIenv
+Running Python script
+slurmstepd: error: *** JOB 33253288 ON p-bc-5022 CANCELLED AT 2025-02-22T01:52:09 ***

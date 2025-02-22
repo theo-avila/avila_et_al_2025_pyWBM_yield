@@ -1,0 +1,17 @@
+Sourcing Conda
+Activating WFPIenv
+Running Python script
+Traceback (most recent call last):
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 162, in <module>
+    results = dask.compute(*results)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/dask/base.py", line 662, in compute
+    results = schedule(dsk, keys, **kwargs)
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 73, in singleYearUrl
+    hourlyToDailyTminTmax(current_dt, tmp_downloads_dir)
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 122, in hourlyToDailyTminTmax
+    tmin = tmin.assign_coords(time=tmin.time.dt.floor("D"))
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/common.py", line 302, in __getattr__
+    raise AttributeError(
+AttributeError: 'DataArray' object has no attribute 'time'
+2025-02-22 02:12:02,859 - distributed.scheduler - ERROR - Task singleYearUrl-af8aebd5-2329-4c7b-9ed7-90e6d75209fd marked as failed because 4 workers died while trying to run it
+Python script execution failed
