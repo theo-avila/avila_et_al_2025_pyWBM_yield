@@ -1,0 +1,7 @@
+Sourcing Conda
+Activating WFPIenv
+Running Python script
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 162
+    final_dataset = xr.Dataset({
+IndentationError: unexpected indent
+Python script execution failed

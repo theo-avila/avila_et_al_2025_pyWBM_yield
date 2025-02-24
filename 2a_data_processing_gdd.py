@@ -134,11 +134,12 @@ def hourlyToDailyTminTmax(current_dt, tmp_downloads_dir):
     for time_val in np.arange(0, 24, 1):
         hour_str_running = running_dt.strftime("%H%M")
         file_path = f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str_running}.nc"
+        
         try:
             with xr.open_dataset(file_path) as new_tmp:
                 new_tmpdf = new_tmp.Tair.isel(time=0)
-                tmax = xr.where(new_tmpdf > tmax, new_tmpdf, tmax)
-                tmin = xr.where(new_tmpdf < tmin, new_tmpdf, tmin)
+                tmax = xr.where(new_tmpdf > tmax, new_tmpdf, tmax).copy(deep=True)
+                tmin = xr.where(new_tmpdf < tmin, new_tmpdf, tmin).copy(deep=True)
         except Exception as e:
             print(f"An unexpected error occurred with {file_path}: {e}")
         finally:
@@ -148,9 +149,11 @@ def hourlyToDailyTminTmax(current_dt, tmp_downloads_dir):
                 pass
             except Exception as e:
                 print(f"Error deleting {file_path}: {e}")
+                
+        running_dt += datetime.timedelta(hours=1)
         
     date_val = np.datetime64(current_dt.strftime("%Y-%m-%d"))
-
+    
     # If tmin doesn't have a time coordinate, add one:
     if "time" not in tmin.coords:
         tmin = tmin.expand_dims(time=[date_val])
@@ -158,13 +161,15 @@ def hourlyToDailyTminTmax(current_dt, tmp_downloads_dir):
     else:
         tmin = tmin.assign_coords(time=tmin.time.dt.floor("D"))
         tmax = tmax.assign_coords(time=tmax.time.dt.floor("D"))
-
+    
     final_dataset = xr.Dataset({
         "tmin": tmin,
         "tmax": tmax
     })
-    
     final_dataset.to_netcdf(f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.nc")
+    
+    #tmin.to_netcdf(f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}_tmin.nc")
+    #tmax.to_netcdf(f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}_tmax.nc")
 
 output_dir = "/storage/home/cta5244/work/pyWBM_yield_data/NCEPNARR_NLDAS_Hist_Temp/tmp_downloads"
 base_url = "https://hydro1.gesdisc.eosdis.nasa.gov/data/NLDAS/NLDAS_FORA0125_H.2.0"
