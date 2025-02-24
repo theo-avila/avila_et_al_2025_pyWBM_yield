@@ -1,0 +1,21 @@
+2025-02-24 14:44:13,179 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.6.8.34:33017'
+2025-02-24 14:44:15,605 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.34:46787
+2025-02-24 14:44:15,605 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.34:46787
+2025-02-24 14:44:15,605 - distributed.worker - INFO -           Worker name:            SLURMCluster-42
+2025-02-24 14:44:15,605 - distributed.worker - INFO -          dashboard at:            10.6.8.34:44289
+2025-02-24 14:44:15,605 - distributed.worker - INFO - Waiting to connect to:     tcp://10.6.8.173:40421
+2025-02-24 14:44:15,605 - distributed.worker - INFO - -------------------------------------------------
+2025-02-24 14:44:15,605 - distributed.worker - INFO -               Threads:                          1
+2025-02-24 14:44:15,605 - distributed.worker - INFO -                Memory:                   2.00 GiB
+2025-02-24 14:44:15,605 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-oztq2uiu
+2025-02-24 14:44:15,605 - distributed.worker - INFO - -------------------------------------------------
+2025-02-24 14:44:17,131 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-02-24 14:44:17,132 - distributed.worker - INFO -         Registered to:     tcp://10.6.8.173:40421
+2025-02-24 14:44:17,132 - distributed.worker - INFO - -------------------------------------------------
+2025-02-24 14:44:17,132 - distributed.core - INFO - Starting established connection to tcp://10.6.8.173:40421
+2025-02-24 14:46:12,100 - distributed.core - INFO - Connection to tcp://10.6.8.173:40421 has been closed.
+2025-02-24 14:46:12,102 - distributed.worker - INFO - Stopping worker at tcp://10.6.8.34:46787. Reason: worker-handle-scheduler-connection-broken
+2025-02-24 14:46:12,105 - distributed.nanny - INFO - Closing Nanny gracefully at 'tcp://10.6.8.34:33017'. Reason: worker-handle-scheduler-connection-broken
+2025-02-24 14:46:12,106 - distributed.worker.state_machine - WARNING - Async instruction for <Task cancelled name="execute('singleYearUrl-b2ed9d4f-c80c-4b84-8929-4ec8fb2c207d')" coro=<Worker.execute() done, defined at /storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607>> ended with CancelledError
+2025-02-24 14:46:12,106 - distributed.worker - INFO - Removing Worker plugin shuffle
+slurmstepd: error: *** JOB 33406453 ON p-bc-5024 CANCELLED AT 2025-02-24T14:46:13 ***

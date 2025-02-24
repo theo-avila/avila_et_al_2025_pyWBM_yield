@@ -1,0 +1,54 @@
+2025-02-24 14:44:22,089 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.6.8.55:38307'
+2025-02-24 14:44:24,559 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.55:42007
+2025-02-24 14:44:24,559 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.55:42007
+2025-02-24 14:44:24,559 - distributed.worker - INFO -           Worker name:             SLURMCluster-4
+2025-02-24 14:44:24,559 - distributed.worker - INFO -          dashboard at:            10.6.8.55:33667
+2025-02-24 14:44:24,560 - distributed.worker - INFO - Waiting to connect to:     tcp://10.6.8.173:40421
+2025-02-24 14:44:24,560 - distributed.worker - INFO - -------------------------------------------------
+2025-02-24 14:44:24,560 - distributed.worker - INFO -               Threads:                          1
+2025-02-24 14:44:24,560 - distributed.worker - INFO -                Memory:                   2.00 GiB
+2025-02-24 14:44:24,560 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-nct3ojk2
+2025-02-24 14:44:24,560 - distributed.worker - INFO - -------------------------------------------------
+2025-02-24 14:44:25,475 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-02-24 14:44:25,476 - distributed.worker - INFO -         Registered to:     tcp://10.6.8.173:40421
+2025-02-24 14:44:25,476 - distributed.worker - INFO - -------------------------------------------------
+2025-02-24 14:44:25,477 - distributed.core - INFO - Starting established connection to tcp://10.6.8.173:40421
+2025-02-24 14:46:12,099 - distributed.core - INFO - Connection to tcp://10.6.8.173:40421 has been closed.
+2025-02-24 14:46:12,101 - distributed.worker - INFO - Stopping worker at tcp://10.6.8.55:42007. Reason: worker-handle-scheduler-connection-broken
+2025-02-24 14:46:12,105 - distributed.nanny - INFO - Closing Nanny gracefully at 'tcp://10.6.8.55:38307'. Reason: worker-handle-scheduler-connection-broken
+2025-02-24 14:46:12,106 - distributed.worker.state_machine - WARNING - Async instruction for <Task cancelled name="execute('singleYearUrl-10fa6b10-883e-4b8b-991f-1cc677af7a1e')" coro=<Worker.execute() done, defined at /storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607>> ended with CancelledError
+2025-02-24 14:46:12,107 - distributed.worker - INFO - Removing Worker plugin shuffle
+2025-02-24 14:46:14,218 - distributed.client - ERROR - 
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/core.py", line 342, in connect
+    comm = await wait_for(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/utils.py", line 1915, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/asyncio/tasks.py", line 445, in wait_for
+    return fut.result()
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 560, in connect
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc.__class__.__name__}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <distributed.comm.tcp.TCPConnector object at 0x147968963340>: ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/utils.py", line 805, in wrapper
+    return await func(*args, **kwargs)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/client.py", line 1549, in _reconnect
+    await self._ensure_connected(timeout=timeout)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/client.py", line 1579, in _ensure_connected
+    comm = await connect(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/core.py", line 366, in connect
+    await asyncio.sleep(backoff)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/asyncio/tasks.py", line 605, in sleep
+    return await future
+asyncio.exceptions.CancelledError
+2025-02-24 14:46:16,018 - distributed.nanny - INFO - Worker closed
+slurmstepd: error: *** JOB 33406470 ON p-bc-5045 CANCELLED AT 2025-02-24T14:46:17 ***

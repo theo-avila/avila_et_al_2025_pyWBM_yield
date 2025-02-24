@@ -102,8 +102,8 @@ def hourlyToDailyTminTmax(current_dt, tmp_downloads_dir):
     
     if os.path.exists(file_path):
         ds = xr.open_dataset(file_path)
-        tmin = ds.Tair.isel(time=0)
-        tmax = ds.Tair.isel(time=0)
+        tmin = ds.Tair.isel(time=0).copy(deep=True)
+        tmax = ds.Tair.isel(time=0).copy(deep=True)
     else:
         # Loop over possible hours (assuming HHMM format with minutes=00)
         found = False
@@ -113,8 +113,8 @@ def hourlyToDailyTminTmax(current_dt, tmp_downloads_dir):
             if os.path.exists(file_path_possible):
                 try:
                     ds = xr.open_dataset(file_path_possible)
-                    tmin = ds.Tair.isel(time=0)
-                    tmax = ds.Tair.isel(time=0)
+                    tmin = ds.Tair.isel(time=0).copy(deep=True)
+                    tmax = ds.Tair.isel(time=0).copy(deep=True)
                     found = True
                     break
                 except ValueError:
