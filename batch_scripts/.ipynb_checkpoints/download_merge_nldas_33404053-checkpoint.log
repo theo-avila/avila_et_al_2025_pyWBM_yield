@@ -1,0 +1,14 @@
+Sourcing Conda
+Activating WFPIenv
+Running Python script
+Traceback (most recent call last):
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 189, in <module>
+    results = dask.compute(*results)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/dask/base.py", line 662, in compute
+    results = schedule(dsk, keys, **kwargs)
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 73, in singleYearUrl
+    hourlyToDailyTminTmax(current_dt, tmp_downloads_dir)
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 84, in hourlyToDailyTminTmax
+    running_dt = current_dt.copy()
+AttributeError: 'datetime.datetime' object has no attribute 'copy'
+Python script execution failed

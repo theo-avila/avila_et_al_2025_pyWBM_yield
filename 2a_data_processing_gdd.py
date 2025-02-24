@@ -5,6 +5,8 @@ import numpy as np
 import datetime
 import xarray as xr
 import dask
+import glob
+
 
 def downloadData(url, output_path):
     '''
@@ -66,13 +68,22 @@ def singleYearUrl(year):
         url = (f"{base_url}/{year}/{julian_day}/"
                f"NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str}.020.nc")
     
-        downloadData(url, f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str}.020.nc")
+        downloadData(url, f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str}.nc")
 
         # every timestep running_dt is set to be equal to current dt (doesnt change anything), running_dt is 
         if current_dt.hour == 23:
             hourlyToDailyTminTmax(current_dt, tmp_downloads_dir)
-            
+
+            for pattern in [
+                f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.0*",
+                f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.1*",
+                f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.2*"
+            ]:
+                for file_to_remove in glob.glob(pattern):
+                    os.remove(file_to_remove)
+                    
         current_dt += datetime.timedelta(hours=1)
+        
 def hourlyToDailyTminTmax(current_dt, tmp_downloads_dir):
     '''
     takes datetime index, and turns that into nc file with tmax & tmin, deleting underlying path
@@ -83,11 +94,11 @@ def hourlyToDailyTminTmax(current_dt, tmp_downloads_dir):
     running_dt = current_dt
     running_dt += datetime.timedelta(hours=-23)
     
-    yyyymmdd = current_dt.strftime("%Y%m%d")
-    hour_str_running = current_dt.strftime("%H%M")
+    yyyymmdd = running_dt.strftime("%Y%m%d")
+    hour_str_running = running_dt.strftime("%H%M")
     
     # Construct the expected file path using your current hour string
-    file_path = f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str_running}.020.nc"
+    file_path = f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str_running}.nc"
     
     if os.path.exists(file_path):
         ds = xr.open_dataset(file_path)
@@ -98,26 +109,45 @@ def hourlyToDailyTminTmax(current_dt, tmp_downloads_dir):
         found = False
         for hour in np.arange(0, 24, 1):
             hour_str_possible = f"{int(hour):02d}00"
-            file_path_possible = f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str_possible}.020.nc"
+            file_path_possible = f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str_possible}.nc"
             if os.path.exists(file_path_possible):
-                ds = xr.open_dataset(file_path_possible)
-                tmin = ds.Tair.isel(time=0)
-                tmax = ds.Tair.isel(time=0)
-                found = True
-                break
+                try:
+                    ds = xr.open_dataset(file_path_possible)
+                    tmin = ds.Tair.isel(time=0)
+                    tmax = ds.Tair.isel(time=0)
+                    found = True
+                    break
+                except ValueError:
+                    pass
         if not found:
+            # Remove all 24 hours anyway, even if we couldn't open them
+            for hour in np.arange(24):
+                hour_str_possible = f"{int(hour):02d}00"
+                file_path_possible = f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str_possible}.nc"
+                try:
+                    os.remove(file_path_possible)
+                except FileNotFoundError:
+                    pass
             return
+
             
     for time_val in np.arange(0, 24, 1):
         hour_str_running = running_dt.strftime("%H%M")
+        file_path = f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str_running}.nc"
         try:
-            new_tmp = xr.open_dataset(f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str_running}.020.nc").Tair.isel(time=0)
-            running_dt += datetime.timedelta(hours=1)
-            tmax = xr.where(new_tmp > tmax, new_tmp, tmax)
-            tmin = xr.where(new_tmp < tmin, new_tmp, tmin)
-            os.remove(f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str_running}.020.nc")
-        except Exception:
-            pass
+            with xr.open_dataset(file_path) as new_tmp:
+                new_tmpdf = new_tmp.Tair.isel(time=0)
+                tmax = xr.where(new_tmpdf > tmax, new_tmpdf, tmax)
+                tmin = xr.where(new_tmpdf < tmin, new_tmpdf, tmin)
+        except Exception as e:
+            print(f"An unexpected error occurred with {file_path}: {e}")
+        finally:
+            try:
+                os.remove(file_path)
+            except FileNotFoundError:
+                pass
+            except Exception as e:
+                print(f"Error deleting {file_path}: {e}")
         
     date_val = np.datetime64(current_dt.strftime("%Y-%m-%d"))
 

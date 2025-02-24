@@ -1,0 +1,20 @@
+Sourcing Conda
+Activating WFPIenv
+Running Python script
+Traceback (most recent call last):
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 174, in <module>
+    results = dask.compute(*results)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/dask/base.py", line 662, in compute
+    results = schedule(dsk, keys, **kwargs)
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 73, in singleYearUrl
+    hourlyToDailyTminTmax(current_dt, tmp_downloads_dir)
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 104, in hourlyToDailyTminTmax
+    ds = xr.open_dataset(file_path_possible)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/api.py", line 651, in open_dataset
+    engine = plugins.guess_engine(filename_or_obj)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/plugins.py", line 194, in guess_engine
+    raise ValueError(error_msg)
+ValueError: did not find a match in any of xarray's currently installed IO backends ['netcdf4', 'scipy', 'zarr']. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
+https://docs.xarray.dev/en/stable/getting-started-guide/installing.html
+https://docs.xarray.dev/en/stable/user-guide/io.html
+Python script execution failed
