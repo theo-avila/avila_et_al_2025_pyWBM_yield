@@ -13,3 +13,4 @@
 2025-02-24 14:20:46,299 - distributed.worker - INFO -         Registered to:     tcp://10.6.8.109:44705
 2025-02-24 14:20:46,299 - distributed.worker - INFO - -------------------------------------------------
 2025-02-24 14:20:46,300 - distributed.core - INFO - Starting established connection to tcp://10.6.8.109:44705
+slurmstepd: error: *** JOB 33405039 ON p-bc-5046 CANCELLED AT 2025-02-24T14:29:52 ***
