@@ -10,7 +10,7 @@ Theo Avila<sup>1*</sup>, David Lafferty<sup>2</sup>, Tahsina Alam<sup>3</sup>, R
 <sup>*</sup> corresponding author: ctavila2@illinois.edu
 
 
-this is the code for avila et al 2026 pyWBM yields. 
+this is the repository for avila et al 2026 pyWBM yields
 
 ### Input data
 | Dataset | Link | DOI | Notes |
