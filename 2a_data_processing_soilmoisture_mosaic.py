@@ -49,7 +49,7 @@ def aggregate_day_files(date_str, output_dir):
     yyyymmdd as datestr
     location for files to be saved as outputdir
     '''
-    pattern = os.path.join(output_dir, f"{output_dir}/NLDAS_MOS0125_H.A{date_str}.*.grb.SUB.nc4")
+    pattern = os.path.join(output_dir, f"{output_dir}/NLDAS_NOAH0125_H.A{date_str}.*.grb.SUB.nc4")
     file_list = sorted(glob.glob(pattern))
 
     if not file_list:
@@ -65,7 +65,7 @@ def aggregate_day_files(date_str, output_dir):
         
     ds_daily = ds.resample(time='1D').mean().sel(depth=100.0)
 
-    daily_file = os.path.join(output_dir, f"{output_dir}/NLDAS_MOS0125_H.A{date_str}_daily_100cm.nc")
+    daily_file = os.path.join(output_dir, f"{output_dir}/NLDAS_NOAH0125_H.A{date_str}_daily_100cm.nc")
     ds_daily.to_netcdf(daily_file)
     
     #for file_to_remove in glob.glob(pattern):
@@ -80,8 +80,8 @@ def urls_list():
     if not username or not password:
         raise Exception("Missing credentials. Please set earthnasa_user and earthnasa_pass in your environment.")
 
-    url_file = "/storage/home/cta5244/work/pyWBM_yield_data/hydro_models/subset_NLDAS_MOS0125_H_002_20250225_212838_.txt"
-    output_dir = "/storage/home/cta5244/work/pyWBM_yield_data/hydro_models/MOSAIC/daily_soil100cm"
+    url_file = "/storage/home/cta5244/work/pyWBM_yield_data/hydro_models/subset_NLDAS_NOAH0125_H_002_20250226_024826_.txt"
+    output_dir = "/storage/home/cta5244/work/pyWBM_yield_data/hydro_models/NOAH/daily_soil100cm"
     
     os.makedirs(output_dir, exist_ok=True)
     
@@ -96,7 +96,7 @@ def urls_list():
         try:
             file_path = downloadData(url, output_dir, session)
             
-            match = re.search(r"NLDAS_MOS0125_H\.A(\d{8})\.(\d{4})\.002\.grb\.SUB", file_path)
+            match = re.search(r"NLDAS_NOAH0125_H\.A(\d{8})\.(\d{4})\.002\.grb\.SUB", file_path)
             if match:
                 date_str = match.group(1)  
                 hour_str = match.group(2)
@@ -113,9 +113,9 @@ urls_list()
 
 #############              inputs            ############################################
 
-output_dir = "/storage/home/cta5244/work/pyWBM_yield_data/hydro_models/MOSAIC/daily_soil100cm"
-base_url = "https://hydro1.gesdisc.eosdis.nasa.gov/data/NLDAS/NLDAS_MOS0125_H.002"
-specific_model_path = "NLDAS_MOS0125_H.A"
+output_dir = "/storage/home/cta5244/work/pyWBM_yield_data/hydro_models/NOAH/daily_soil100cm"
+base_url = "https://hydro1.gesdisc.eosdis.nasa.gov/data/NLDAS/NLDAS_NOAH0125_H.002"
+specific_model_path = "NLDAS_NOAH0125_H.A"
 file_type = "grb"
 
 start_year = 1979
