@@ -56,7 +56,7 @@ def singleYearUrl(year):
     except Exception:
         pass
         
-    start_dt = datetime.datetime(year, 1, 1, 0, 0)
+    start_dt = datetime.datetime(year, 6, 1, 0, 0)
     end_dt = datetime.datetime(year, 12, 31, 23, 0)
     
     current_dt = start_dt
