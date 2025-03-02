@@ -1,6 +1,6 @@
 #!/bin/bash -l
-#SBATCH --job-name=
-#SBATCH --output=
+#SBATCH --job-name=download_merge_nldas
+#SBATCH --output=download_merge_nldas_%j.log
 #SBATCH --partition=pches
 #SBATCH --nodes=1                
 #SBATCH --ntasks=1

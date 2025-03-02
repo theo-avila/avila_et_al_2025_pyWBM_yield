@@ -1,0 +1,2 @@
+2025-03-02 00:49:10,883 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.6.8.77:33937'
+slurmstepd: error: *** JOB 33941946 ON p-bc-5067 CANCELLED AT 2025-03-02T00:49:12 ***

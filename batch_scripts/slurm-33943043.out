@@ -1,0 +1,36 @@
+2025-03-02 01:00:24,766 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.6.8.77:45337'
+2025-03-02 01:00:28,697 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.77:46421
+2025-03-02 01:00:28,697 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.77:46421
+2025-03-02 01:00:28,697 - distributed.worker - INFO -           Worker name:            SLURMCluster-16
+2025-03-02 01:00:28,697 - distributed.worker - INFO -          dashboard at:            10.6.8.77:35867
+2025-03-02 01:00:28,697 - distributed.worker - INFO - Waiting to connect to:      tcp://10.6.8.66:39697
+2025-03-02 01:00:28,697 - distributed.worker - INFO - -------------------------------------------------
+2025-03-02 01:00:28,697 - distributed.worker - INFO -               Threads:                          1
+2025-03-02 01:00:28,697 - distributed.worker - INFO -                Memory:                   2.00 GiB
+2025-03-02 01:00:28,698 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-5ods7rve
+2025-03-02 01:00:28,698 - distributed.worker - INFO - -------------------------------------------------
+2025-03-02 01:00:31,639 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-02 01:00:31,640 - distributed.worker - INFO -         Registered to:      tcp://10.6.8.66:39697
+2025-03-02 01:00:31,640 - distributed.worker - INFO - -------------------------------------------------
+2025-03-02 01:00:31,640 - distributed.core - INFO - Starting established connection to tcp://10.6.8.66:39697
+2025-03-02 01:02:32,811 - distributed.worker - INFO - Stopping worker at tcp://10.6.8.77:46421. Reason: scheduler-close
+slurmstepd: error: *** JOB 33943043 ON p-bc-5067 CANCELLED AT 2025-03-02T01:02:32 ***
+2025-03-02 01:02:32,817 - distributed.batched - INFO - Batched Comm Closed <TCP (closed) Worker->Scheduler local=tcp://10.6.8.77:34096 remote=tcp://10.6.8.66:39697>
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 298, in write
+    raise StreamClosedError()
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/batched.py", line 115, in _background_send
+    nbytes = yield coro
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/gen.py", line 766, in run
+    value = future.result()
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 308, in write
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 137, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Worker->Scheduler local=tcp://10.6.8.77:34096 remote=tcp://10.6.8.66:39697>: Stream is closed
+2025-03-02 01:02:32,849 - distributed.nanny - INFO - Closing Nanny gracefully at 'tcp://10.6.8.77:45337'. Reason: scheduler-close

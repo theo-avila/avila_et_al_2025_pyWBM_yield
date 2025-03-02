@@ -1,0 +1,23 @@
+2025-03-02 00:49:03,314 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.6.8.68:45097'
+2025-03-02 00:49:04,964 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.68:35173
+2025-03-02 00:49:04,964 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.68:35173
+2025-03-02 00:49:04,964 - distributed.worker - INFO -           Worker name:             SLURMCluster-9
+2025-03-02 00:49:04,964 - distributed.worker - INFO -          dashboard at:            10.6.8.68:36533
+2025-03-02 00:49:04,964 - distributed.worker - INFO - Waiting to connect to:      tcp://10.6.8.81:43551
+2025-03-02 00:49:04,964 - distributed.worker - INFO - -------------------------------------------------
+2025-03-02 00:49:04,964 - distributed.worker - INFO -               Threads:                          1
+2025-03-02 00:49:04,964 - distributed.worker - INFO -                Memory:                   2.00 GiB
+2025-03-02 00:49:04,964 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-dn1lfqj8
+2025-03-02 00:49:04,964 - distributed.worker - INFO - -------------------------------------------------
+2025-03-02 00:49:07,237 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-02 00:49:07,238 - distributed.worker - INFO -         Registered to:      tcp://10.6.8.81:43551
+2025-03-02 00:49:07,238 - distributed.worker - INFO - -------------------------------------------------
+2025-03-02 00:49:07,239 - distributed.core - INFO - Starting established connection to tcp://10.6.8.81:43551
+2025-03-02 00:49:08,900 - distributed.worker - ERROR - Compute Failed
+Key:       singleYearUrl-0943d794-23a8-404f-8a5d-67d16e656561
+State:     executing
+Task:  <Task 'singleYearUrl-0943d794-23a8-404f-8a5d-67d16e656561' apply(...)>
+Exception: 'SSLError(MaxRetryError("HTTPSConnectionPool(host=\'hydro1.gesdisc.eosdis.nasa.gov\', port=443): Max retries exceeded with url: /data/NLDAS/NLDAS_FORA0125_H.2.0/2007/001/NLDAS_FORA0125_H.A20070101.0100.020.nc (Caused by SSLError(SSLError(1, \'[SSL: UNEXPECTED_MESSAGE] unexpected message (_ssl.c:1007)\')))"))'
+Traceback: '  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/dask/utils.py", line 77, in apply\n    return func(*args, **kwargs)\n  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 71, in singleYearUrl\n    downloadData(url, f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str}.nc")\n  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 22, in downloadData\n    response = session.get(url, auth=(username, password), stream=True)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/requests/sessions.py", line 602, in get\n    return self.request("GET", url, **kwargs)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/requests/sessions.py", line 589, in request\n    resp = self.send(prep, **send_kwargs)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/requests/sessions.py", line 703, in send\n    r = adapter.send(request, **kwargs)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/requests/adapters.py", line 698, in send\n    raise SSLError(e, request=request)\n'
+
+slurmstepd: error: *** JOB 33941934 ON p-bc-5058 CANCELLED AT 2025-03-02T00:49:09 ***

@@ -1,0 +1,16 @@
+2025-03-02 00:49:03,079 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.6.8.70:32939'
+2025-03-02 00:49:04,759 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.70:40439
+2025-03-02 00:49:04,759 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.70:40439
+2025-03-02 00:49:04,759 - distributed.worker - INFO -           Worker name:            SLURMCluster-22
+2025-03-02 00:49:04,759 - distributed.worker - INFO -          dashboard at:            10.6.8.70:39167
+2025-03-02 00:49:04,759 - distributed.worker - INFO - Waiting to connect to:      tcp://10.6.8.81:43551
+2025-03-02 00:49:04,760 - distributed.worker - INFO - -------------------------------------------------
+2025-03-02 00:49:04,760 - distributed.worker - INFO -               Threads:                          1
+2025-03-02 00:49:04,760 - distributed.worker - INFO -                Memory:                   2.00 GiB
+2025-03-02 00:49:04,760 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-s4ny04ef
+2025-03-02 00:49:04,760 - distributed.worker - INFO - -------------------------------------------------
+2025-03-02 00:49:07,010 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-02 00:49:07,011 - distributed.worker - INFO -         Registered to:      tcp://10.6.8.81:43551
+2025-03-02 00:49:07,011 - distributed.worker - INFO - -------------------------------------------------
+2025-03-02 00:49:07,011 - distributed.core - INFO - Starting established connection to tcp://10.6.8.81:43551
+slurmstepd: error: *** JOB 33941937 ON p-bc-5060 CANCELLED AT 2025-03-02T00:49:10 ***

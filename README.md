@@ -22,3 +22,12 @@ this is the repository for avila et al 2026 pyWBM yields
 | USDA Crop Production |  |  |  |
 | Livneh County Shape Files |  |  |  |
 
+### Script Order
+- Some downloading & preprocessing was done offline
+- Many files are not saved within the github repo so filepaths will need to be altered when neccesary
+- Computations for this research were performed on the Pennsylvania State University’s Institute for Computational and Data Sciences’ Roar Collab supercomputer 
+
+| Script | Description |
+|--------|-------------|
+| 2a_data_processing_gdd.py | downloads and processes nldas forcing data for daily tmax & tmin |
+| 2a_gdd_edd_calculation.ipynb | takes nldas forcing data and calculates growing degree days and extreme degree days |

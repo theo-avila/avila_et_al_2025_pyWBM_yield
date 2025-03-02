@@ -166,12 +166,13 @@ def hourlyToDailyTminTmax(current_dt, tmp_downloads_dir):
         "tmin": tmin,
         "tmax": tmax
     })
+    
     final_dataset.to_netcdf(f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.nc")
     
     #tmin.to_netcdf(f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}_tmin.nc")
     #tmax.to_netcdf(f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}_tmax.nc")
 
-output_dir = "/storage/home/cta5244/work/pyWBM_yield_data/NCEPNARR_NLDAS_Hist_Temp/tmp_downloads"
+output_dir = "/storage/home/cta5244/work/pyWBM_yield_data/NCEPNARR_NLDAS_tmax_tmin/"
 base_url = "https://hydro1.gesdisc.eosdis.nasa.gov/data/NLDAS/NLDAS_FORA0125_H.2.0"
 start_year = 1979
 end_year = 2026
@@ -179,6 +180,7 @@ username = os.environ.get("earthnasa_user")
 password = os.environ.get("earthnasa_pass")
 
 session = requests.Session()
+session.headers.update({"Connection": "close"})
 
 from dask_jobqueue import SLURMCluster
 
