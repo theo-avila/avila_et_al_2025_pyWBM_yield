@@ -6,6 +6,7 @@ import datetime
 import xarray as xr
 import dask
 import glob
+import time
 
 
 def downloadData(url, output_path):
@@ -67,7 +68,9 @@ def singleYearUrl(year):
         
         url = (f"{base_url}/{year}/{julian_day}/"
                f"NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str}.020.nc")
-    
+
+
+        time.sleep(.1)
         downloadData(url, f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str}.nc")
 
         # every timestep running_dt is set to be equal to current dt (doesnt change anything), running_dt is 
