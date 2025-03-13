@@ -1,0 +1,8 @@
+Sourcing Conda
+Activating WFPIenv
+Running Python script
+Traceback (most recent call last):
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 11, in <module>
+    class SSLContextAdapter(HTTPAdapter):
+NameError: name 'HTTPAdapter' is not defined
+Python script execution failed

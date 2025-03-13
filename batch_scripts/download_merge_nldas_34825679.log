@@ -40,7 +40,7 @@ Traceback (most recent call last):
     retries = retries.increment(
   File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: None: Max retries exceeded with url: /data/NLDAS/NLDAS_FORA0125_H.2.0/2005/004/NLDAS_FORA0125_H.A20050104.2300.020.nc (Caused by None)
+urllib3.exceptions.MaxRetryError: None: Max retries exceeded with url: /data/NLDAS/NLDAS_FORA0125_H.2.0/2025/013/NLDAS_FORA0125_H.A20250113.1600.020.nc (Caused by None)
 
 During handling of the above exception, another exception occurred:
 
@@ -52,7 +52,7 @@ Traceback (most recent call last):
   File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 74, in singleYearUrl
     downloadData(url, f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str}.nc")
   File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/2a_data_processing_gdd.py", line 23, in downloadData
-    response = session.get(url, auth=(username, password), stream=True)
+    response = session.get(url, auth=(username, password), stream=True, verify=False)
   File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/requests/sessions.py", line 602, in get
     return self.request("GET", url, **kwargs)
   File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
@@ -61,5 +61,5 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/requests/adapters.py", line 698, in send
     raise SSLError(e, request=request)
-requests.exceptions.SSLError: None: Max retries exceeded with url: /data/NLDAS/NLDAS_FORA0125_H.2.0/2005/004/NLDAS_FORA0125_H.A20050104.2300.020.nc (Caused by None)
+requests.exceptions.SSLError: None: Max retries exceeded with url: /data/NLDAS/NLDAS_FORA0125_H.2.0/2025/013/NLDAS_FORA0125_H.A20250113.1600.020.nc (Caused by None)
 Python script execution failed

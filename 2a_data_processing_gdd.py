@@ -7,38 +7,74 @@ import xarray as xr
 import dask
 import glob
 import time
+import ssl
+import re
+from requests.adapters import HTTPAdapter
+from urllib3.poolmanager import PoolManager
+from urllib3.util.retry import Retry
 
-
-def downloadData(url, output_path):
-    '''
-    Given a URL, assuming that we are logged into a session, 
-    this function downloads data from NASA Earthdata and saves it to output_path.
+class SSLContextAdapter(HTTPAdapter):
+    def __init__(self, ssl_context=None, **kwargs):
+        self.ssl_context = ssl_context
+        super().__init__(**kwargs)
     
+    def init_poolmanager(self, connections, maxsize, block=False, **pool_kwargs):
+        pool_kwargs['ssl_context'] = self.ssl_context
+        return super().init_poolmanager(connections, maxsize, block, **pool_kwargs)
+
+# Create a custom SSL context that disables hostname checking and certificate verification.
+ssl_context = ssl.create_default_context()
+ssl_context.check_hostname = False
+ssl_context.verify_mode = ssl.CERT_NONE
+
+# Setup a retry strategy for the session.
+retry_strategy = Retry(
+    total=3,
+    backoff_factor=1,
+    status_forcelist=[429, 500, 502, 503, 504],
+)
+
+# Create a session and mount the adapter with the custom SSL context.
+session = requests.Session()
+adapter = SSLContextAdapter(ssl_context=ssl_context, max_retries=retry_strategy)
+session.mount("https://", adapter)
+session.mount("http://", adapter)
+
+# Now update your downloadData function to use the configured session.
+def downloadData(url, output_path):
+    """
+    Given a URL, assuming that we are logged into a session,
+    this function downloads data from NASA Earthdata and saves it to output_path.
+
     inputs:
       url: a string representing the file URL.
-      output_path: the directory where the file should be saved.
-    
+      output_path: the complete file path where the file should be saved.
+
     returns: nothing
-    '''
-    response = session.get(url, auth=(username, password), stream=True)
-    if response.status_code == 200:
-        # Try to get the filename from the Content-Disposition header
-        cd = response.headers.get("content-disposition")
-        if cd:
-            fname_match = re.findall('filename="?([^";]+)"?', cd)
-            if fname_match:
-                filename = fname_match[0]
-            else:
-                filename = url.split("/")[-1]
-        else:
-            filename = url.split("/")[-1]
-            
-        # Write the content to a file in chunks
-        with open(output_path, "wb") as f:
-            for chunk in response.iter_content(chunk_size=8192):
-                if chunk:  # filter out keep-alive chunks
-                    f.write(chunk)
-                    
+    """
+    try:
+        # No need to pass verify=False here since our adapter uses a custom SSL context.
+        response = session.get(url, auth=(username, password), stream=True)
+        response.raise_for_status()  # Raises an exception for HTTP errors.
+    except requests.exceptions.RequestException as err:
+        print("Error occurred while downloading data:", err)
+        return
+
+    # Attempt to get the filename from the Content-Disposition header if available.
+    cd = response.headers.get("content-disposition")
+    if cd:
+        fname_match = re.findall('filename="?([^";]+)"?', cd)
+        filename = fname_match[0] if fname_match else url.split("/")[-1]
+    else:
+        filename = url.split("/")[-1]
+
+    # Write the response content to a file in chunks.
+    with open(output_path, "wb") as f:
+        for chunk in response.iter_content(chunk_size=8192):
+            if chunk:  # filter out keep-alive chunks
+                f.write(chunk)
+    print("Download complete:", output_path)
+
 def singleYearUrl(year):
     '''
     given a year, returns all possible urls for the year
