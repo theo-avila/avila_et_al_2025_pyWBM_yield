@@ -29,5 +29,5 @@ this is the repository for avila et al 2026 pyWBM yields
 
 | Script | Description |
 |--------|-------------|
-| 2a_data_processing_gdd.py | downloads and processes nldas forcing data for daily tmax & tmin |
+| 2a_data_processing_gdd.py | downloads and processes nldas forcing data for daily tmax & tmin (uses sbatch 2a) |
 | 2a_gdd_edd_calculation.ipynb | takes nldas forcing data and calculates growing degree days and extreme degree days |
