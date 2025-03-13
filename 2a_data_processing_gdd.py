@@ -70,7 +70,7 @@ def singleYearUrl(year):
                f"NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str}.020.nc")
 
 
-        time.sleep(.1)
+        time.sleep(1)
         downloadData(url, f"{tmp_downloads_dir}/NLDAS_FORA0125_H.A{yyyymmdd}.{hour_str}.nc")
 
         # every timestep running_dt is set to be equal to current dt (doesnt change anything), running_dt is 
