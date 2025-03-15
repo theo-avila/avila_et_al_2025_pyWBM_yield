@@ -1,0 +1,216 @@
+2025-03-14 22:40:25,999 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.6.8.39:34201'
+2025-03-14 22:40:32,747 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.39:37099
+2025-03-14 22:40:32,751 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.39:37099
+2025-03-14 22:40:32,752 - distributed.worker - INFO -           Worker name:             SLURMCluster-9
+2025-03-14 22:40:32,752 - distributed.worker - INFO -          dashboard at:            10.6.8.39:38329
+2025-03-14 22:40:32,752 - distributed.worker - INFO - Waiting to connect to: tcp://146.186.150.11:36245
+2025-03-14 22:40:32,752 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 22:40:32,752 - distributed.worker - INFO -               Threads:                          1
+2025-03-14 22:40:32,752 - distributed.worker - INFO -                Memory:                   4.00 GiB
+2025-03-14 22:40:32,752 - distributed.worker - INFO -       Local Directory: /scratch/cta5244/dask-workers/dask-scratch-space/worker-auaib40s
+2025-03-14 22:40:32,752 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 22:40:34,886 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-14 22:40:34,887 - distributed.worker - INFO -         Registered to: tcp://146.186.150.11:36245
+2025-03-14 22:40:34,887 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 22:40:34,887 - distributed.core - INFO - Starting established connection to tcp://146.186.150.11:36245
+Type = File(72057594037927936) name='/'Type = File(72057594037927937) name='/'Type = File(72057594037927938) name='/'Type = File(72057594037927939) name='/'Type = File(72057594037927940) name='/'Type = File(72057594037927941) name='/'Type = File(72057594037927942) name='/'Type = File(72057594037927943) name='/'Type = File(72057594037927944) name='/'Type = File(72057594037927945) name='/'Type = File(72057594037927946) name='/'Type = File(72057594037927947) name='/'Type = File(72057594037927948) name='/'Type = File(72057594037927949) name='/'Type = File(72057594037927950) name='/'Type = File(72057594037927951) name='/'Type = File(72057594037927952) name='/'Type = File(72057594037927953) name='/'Type = File(72057594037927954) name='/'Type = File(72057594037927955) name='/'Type = File(72057594037927956) name='/'Type = File(72057594037927957) name='/'Type = File(72057594037927958) name='/'Type = File(72057594037927959) name='/'Type = File(72057594037927964) name='/'Type = File(72057594037927965) name='/'Type = File(72057594037927966) name='/'Type = File(72057594037927967) name='/'Type = File(72057594037927968) name='/'Type = File(72057594037927969) name='/'Type = File(72057594037927970) name='/'Type = File(72057594037927971) name='/'Type = File(72057594037927972) name='/'Type = File(72057594037927973) name='/'Type = File(72057594037927974) name='/'Type = File(72057594037927975) name='/'Type = File(72057594037927976) name='/'Type = File(72057594037927977) name='/'Type = File(72057594037927978) name='/'Type = File(72057594037927979) name='/'Type = File(72057594037927980) name='/'Type = File(72057594037927981) name='/'Type = File(72057594037927982) name='/'Type = File(72057594037927983) name='/'Type = File(72057594037927984) name='/'Type = File(72057594037927985) name='/'Type = File(72057594037927986) name='/'Type = File(72057594037927987) name='/'Type = File(72057594037927993) name='/'Type = File(72057594037927994) name='/'Type = File(72057594037927995) name='/'Type = File(72057594037927996) name='/'Type = File(72057594037927997) name='/'Type = File(72057594037927998) name='/'Type = File(72057594037927999) name='/'Type = File(72057594037928000) name='/'Type = File(72057594037928001) name='/'Type = File(72057594037928002) name='/'Type = File(72057594037928003) name='/'Type = File(72057594037928004) name='/'Type = File(72057594037928005) name='/'Type = File(72057594037928006) name='/'Type = File(72057594037928007) name='/'Type = File(72057594037928008) name='/'Type = File(72057594037928009) name='/'Type = File(72057594037928010) name='/'Type = File(72057594037928011) name='/'Type = File(72057594037928012) name='/'Type = File(72057594037928013) name='/'Type = File(72057594037928014) name='/'Type = File(72057594037928015) name='/'Type = File(72057594037928016) name='/'Type = File(72057594037928021) name='/'Type = File(72057594037928022) name='/'Type = File(72057594037928023) name='/'Type = File(72057594037928024) name='/'Type = File(72057594037928026) name='/'Type = File(72057594037928035) name='/'Type = File(72057594037928036) name='/'Type = File(72057594037928037) name='/'Type = File(72057594037928040) name='/'Type = File(72057594037928041) name='/'Type = File(72057594037928044) name='/'Type = File(72057594037928048) name='/'Type = File(72057594037928050) name='/'Type = File(72057594037928051) name='/'Type = File(72057594037928052) name='/'Type = File(72057594037928055) name='/'2025-03-14 22:41:07,809 - distributed.nanny - INFO - Worker process 4192987 was killed by signal 11
+2025-03-14 22:41:07,825 - distributed.nanny - WARNING - Restarting worker
+2025-03-14 22:41:10,884 - distributed.diskutils - INFO - Found stale lock file and directory '/scratch/cta5244/dask-workers/dask-scratch-space/worker-audickga', purging
+2025-03-14 22:41:13,643 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.39:45853
+2025-03-14 22:41:13,643 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.39:45853
+2025-03-14 22:41:13,643 - distributed.worker - INFO -           Worker name:             SLURMCluster-9
+2025-03-14 22:41:13,644 - distributed.worker - INFO -          dashboard at:            10.6.8.39:41217
+2025-03-14 22:41:13,644 - distributed.worker - INFO - Waiting to connect to: tcp://146.186.150.11:36245
+2025-03-14 22:41:13,644 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 22:41:13,644 - distributed.worker - INFO -               Threads:                          1
+2025-03-14 22:41:13,644 - distributed.worker - INFO -                Memory:                   4.00 GiB
+2025-03-14 22:41:13,644 - distributed.worker - INFO -       Local Directory: /scratch/cta5244/dask-workers/dask-scratch-space/worker-nbli3ori
+2025-03-14 22:41:13,644 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 22:41:15,069 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-14 22:41:15,070 - distributed.worker - INFO -         Registered to: tcp://146.186.150.11:36245
+2025-03-14 22:41:15,070 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 22:41:15,070 - distributed.core - INFO - Starting established connection to tcp://146.186.150.11:36245
+2025-03-14 22:41:29,652 - distributed.worker - ERROR - Worker stream died during communication: tcp://10.6.8.33:33517
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 861, in _read_to_buffer
+    bytes_read = self.read_from_fd(buf)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 1116, in read_from_fd
+    return self.socket.recv_into(buf, len(buf))
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2075, in gather_dep
+    response = await get_data_from_worker(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2881, in get_data_from_worker
+    response = await send_recv(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 1018, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc.__class__.__name__}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Ephemeral Worker->Worker for gather local=tcp://10.6.8.39:57852 remote=tcp://10.6.8.33:33517>: ConnectionResetError: [Errno 104] Connection reset by peer
+2025-03-14 22:41:33,238 - distributed.nanny - INFO - Worker process 4193968 was killed by signal 11
+2025-03-14 22:41:33,249 - distributed.nanny - WARNING - Restarting worker
+2025-03-14 22:41:38,739 - distributed.diskutils - INFO - Found stale lock file and directory '/scratch/cta5244/dask-workers/dask-scratch-space/worker-fk67bb_y', purging
+2025-03-14 22:41:41,665 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.39:42551
+2025-03-14 22:41:41,666 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.39:42551
+2025-03-14 22:41:41,666 - distributed.worker - INFO -           Worker name:             SLURMCluster-9
+2025-03-14 22:41:41,666 - distributed.worker - INFO -          dashboard at:            10.6.8.39:42049
+2025-03-14 22:41:41,666 - distributed.worker - INFO - Waiting to connect to: tcp://146.186.150.11:36245
+2025-03-14 22:41:41,666 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 22:41:41,666 - distributed.worker - INFO -               Threads:                          1
+2025-03-14 22:41:41,666 - distributed.worker - INFO -                Memory:                   4.00 GiB
+2025-03-14 22:41:41,666 - distributed.worker - INFO -       Local Directory: /scratch/cta5244/dask-workers/dask-scratch-space/worker-3h4ue9oi
+2025-03-14 22:41:41,666 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 22:41:44,185 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-14 22:41:44,186 - distributed.worker - INFO -         Registered to: tcp://146.186.150.11:36245
+2025-03-14 22:41:44,186 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 22:41:44,186 - distributed.core - INFO - Starting established connection to tcp://146.186.150.11:36245
+2025-03-14 22:41:51,700 - distributed.worker - ERROR - Worker stream died during communication: tcp://10.6.8.37:42693
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 861, in _read_to_buffer
+    bytes_read = self.read_from_fd(buf)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 1116, in read_from_fd
+    return self.socket.recv_into(buf, len(buf))
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2075, in gather_dep
+    response = await get_data_from_worker(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2881, in get_data_from_worker
+    response = await send_recv(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 1018, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc.__class__.__name__}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Ephemeral Worker->Worker for gather local=tcp://10.6.8.39:54194 remote=tcp://10.6.8.37:42693>: ConnectionResetError: [Errno 104] Connection reset by peer
+2025-03-14 22:42:14,387 - distributed.worker - ERROR - Compute Failed
+Key:       ('concatenate-mean_chunk-624049695bfe224fcbd73ae14445432e', 13, 0, 0)
+State:     executing
+Task:  <Task ('concatenate-mean_chunk-624049695bfe224fcbd73ae14445432e', 13, 0, 0) _execute_subgraph(...)>
+Exception: "OSError(-101, 'NetCDF: HDF error')"
+Traceback: '  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/dask/array/core.py", line 133, in getter\n    c = np.asarray(c)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 578, in __array__\n    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 583, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 794, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 664, in get_duck_array\n    array = array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 657, in get_duck_array\n    array = self.array[self.key]\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 103, in __getitem__\n    return indexing.explicit_indexing_adapter(\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 1018, in explicit_indexing_adapter\n    result = raw_indexing_method(raw_key.tuple)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 115, in _getitem\n    original_array = self.get_array(needs_lock=False)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 94, in get_array\n    ds = self.datastore._acquire(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 455, in _acquire\n    with self._manager.acquire_context(needs_lock) as root:\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/contextlib.py", line 135, in __enter__\n    return next(self.gen)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 199, in acquire_context\n    file, cached = self._acquire_with_cache_info(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 217, in _acquire_with_cache_info\n    file = self._opener(*self._args, **kwargs)\n  File "src/netCDF4/_netCDF4.pyx", line 2521, in netCDF4._netCDF4.Dataset.__init__\n  File "src/netCDF4/_netCDF4.pyx", line 2158, in netCDF4._netCDF4._ensure_nc_success\n'
+
+2025-03-14 22:42:16,205 - distributed.worker - ERROR - Worker stream died during communication: tcp://10.6.8.39:37359
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 861, in _read_to_buffer
+    bytes_read = self.read_from_fd(buf)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 1116, in read_from_fd
+    return self.socket.recv_into(buf, len(buf))
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2075, in gather_dep
+    response = await get_data_from_worker(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2881, in get_data_from_worker
+    response = await send_recv(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 1018, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc.__class__.__name__}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Ephemeral Worker->Worker for gather local=tcp://10.6.8.39:34286 remote=tcp://10.6.8.39:37359>: ConnectionResetError: [Errno 104] Connection reset by peer
+Exception ignored in: <function CachingFileManager.__del__ at 0x154f6ae23640>
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 250, in __del__
+    self.close(needs_lock=False)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 234, in close
+    file.close()
+  File "src/netCDF4/_netCDF4.pyx", line 2669, in netCDF4._netCDF4.Dataset.close
+  File "src/netCDF4/_netCDF4.pyx", line 2636, in netCDF4._netCDF4.Dataset._close
+  File "src/netCDF4/_netCDF4.pyx", line 2164, in netCDF4._netCDF4._ensure_nc_success
+RuntimeError: NetCDF: HDF error
+2025-03-14 22:42:31,298 - distributed.nanny - INFO - Worker process 2192 was killed by signal 11
+2025-03-14 22:42:31,310 - distributed.nanny - WARNING - Restarting worker
+2025-03-14 22:42:34,541 - distributed.diskutils - INFO - Found stale lock file and directory '/scratch/cta5244/dask-workers/dask-scratch-space/worker-gk8d_acs', purging
+2025-03-14 22:42:36,457 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.39:45475
+2025-03-14 22:42:36,457 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.39:45475
+2025-03-14 22:42:36,457 - distributed.worker - INFO -           Worker name:             SLURMCluster-9
+2025-03-14 22:42:36,457 - distributed.worker - INFO -          dashboard at:            10.6.8.39:32953
+2025-03-14 22:42:36,458 - distributed.worker - INFO - Waiting to connect to: tcp://146.186.150.11:36245
+2025-03-14 22:42:36,458 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 22:42:36,458 - distributed.worker - INFO -               Threads:                          1
+2025-03-14 22:42:36,458 - distributed.worker - INFO -                Memory:                   4.00 GiB
+2025-03-14 22:42:36,458 - distributed.worker - INFO -       Local Directory: /scratch/cta5244/dask-workers/dask-scratch-space/worker-_ke9y8zu
+2025-03-14 22:42:36,458 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 22:42:38,093 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-14 22:42:38,094 - distributed.worker - INFO -         Registered to: tcp://146.186.150.11:36245
+2025-03-14 22:42:38,094 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 22:42:38,094 - distributed.core - INFO - Starting established connection to tcp://146.186.150.11:36245
+2025-03-14 22:42:41,591 - distributed.worker - ERROR - Worker stream died during communication: tcp://10.6.8.13:41807
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 861, in _read_to_buffer
+    bytes_read = self.read_from_fd(buf)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 1116, in read_from_fd
+    return self.socket.recv_into(buf, len(buf))
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2075, in gather_dep
+    response = await get_data_from_worker(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2878, in get_data_from_worker
+    comm = await rpc.connect(worker)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 1539, in connect
+    return connect_attempt.result()
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 1429, in _connect
+    comm = await connect(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/core.py", line 377, in connect
+    handshake = await comm.read()
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc.__class__.__name__}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed)  local=tcp://10.6.8.39:57290 remote=tcp://10.6.8.13:41807>: ConnectionResetError: [Errno 104] Connection reset by peer
+slurmstepd: error: *** JOB 35099581 ON p-bc-5029 CANCELLED AT 2025-03-14T22:42:44 ***
+2025-03-14 22:42:44,493 - distributed.worker - ERROR - failed during get data with tcp://10.6.8.39:45475 -> tcp://10.6.8.13:38925
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 861, in _read_to_buffer
+    bytes_read = self.read_from_fd(buf)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 1116, in read_from_fd
+    return self.socket.recv_into(buf, len(buf))
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 1797, in get_data
+    response = await comm.read(deserializers=serializers)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc.__class__.__name__}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed)  local=tcp://10.6.8.39:45475 remote=tcp://10.6.8.13:42368>: ConnectionResetError: [Errno 104] Connection reset by peer
+2025-03-14 22:42:44,494 - distributed.core - INFO - Lost connection to 'tcp://10.6.8.13:42368'
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 861, in _read_to_buffer
+    bytes_read = self.read_from_fd(buf)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 1116, in read_from_fd
+    return self.socket.recv_into(buf, len(buf))
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 834, in _handle_comm
+    result = await result
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 981, in wrapper
+    return await func(self, *args, **kwargs)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 1797, in get_data
+    response = await comm.read(deserializers=serializers)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc.__class__.__name__}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed)  local=tcp://10.6.8.39:45475 remote=tcp://10.6.8.13:42368>: ConnectionResetError: [Errno 104] Connection reset by peer

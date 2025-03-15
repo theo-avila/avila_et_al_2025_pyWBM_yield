@@ -1,0 +1,263 @@
+2025-03-14 21:49:09,707 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.6.8.61:38479'
+2025-03-14 21:49:10,925 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.61:38903
+2025-03-14 21:49:10,926 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.61:38903
+2025-03-14 21:49:10,926 - distributed.worker - INFO -           Worker name:             SLURMCluster-0
+2025-03-14 21:49:10,926 - distributed.worker - INFO -          dashboard at:            10.6.8.61:37611
+2025-03-14 21:49:10,926 - distributed.worker - INFO - Waiting to connect to: tcp://146.186.150.13:41175
+2025-03-14 21:49:10,926 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:49:10,926 - distributed.worker - INFO -               Threads:                          1
+2025-03-14 21:49:10,926 - distributed.worker - INFO -                Memory:                   4.00 GiB
+2025-03-14 21:49:10,926 - distributed.worker - INFO -       Local Directory: /scratch/cta5244/dask-workers/dask-scratch-space/worker-2_xdajnl
+2025-03-14 21:49:10,926 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:49:11,693 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-14 21:49:11,694 - distributed.worker - INFO -         Registered to: tcp://146.186.150.13:41175
+2025-03-14 21:49:11,694 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:49:11,694 - distributed.core - INFO - Starting established connection to tcp://146.186.150.13:41175
+2025-03-14 21:52:02,246 - distributed.worker - ERROR - Worker stream died during communication: tcp://10.6.8.58:43703
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 861, in _read_to_buffer
+    bytes_read = self.read_from_fd(buf)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 1116, in read_from_fd
+    return self.socket.recv_into(buf, len(buf))
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2075, in gather_dep
+    response = await get_data_from_worker(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2881, in get_data_from_worker
+    response = await send_recv(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 1018, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc.__class__.__name__}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Ephemeral Worker->Worker for gather local=tcp://10.6.8.61:34722 remote=tcp://10.6.8.58:43703>: ConnectionResetError: [Errno 104] Connection reset by peer
+2025-03-14 21:52:02,567 - distributed.worker - ERROR - Worker stream died during communication: tcp://10.6.8.65:33973
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 861, in _read_to_buffer
+    bytes_read = self.read_from_fd(buf)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 1116, in read_from_fd
+    return self.socket.recv_into(buf, len(buf))
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2075, in gather_dep
+    response = await get_data_from_worker(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2881, in get_data_from_worker
+    response = await send_recv(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 1018, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc.__class__.__name__}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Ephemeral Worker->Worker for gather local=tcp://10.6.8.61:35672 remote=tcp://10.6.8.65:33973>: ConnectionResetError: [Errno 104] Connection reset by peer
+2025-03-14 21:52:04,835 - distributed.worker - ERROR - Compute Failed
+Key:       ('concatenate-open_dataset-original-mean_chunk-325f5689a2ee891a09abd2c0c438b289', 6, 0, 0)
+State:     executing
+Task:  <Task ('concatenate-open_dataset-original-mean_chunk-325f5689a2ee891a09abd2c0c438b289', 6, 0, 0) _execute_subgraph(...)>
+Exception: "OSError(-101, 'NetCDF: HDF error')"
+Traceback: '  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/dask/array/core.py", line 133, in getter\n    c = np.asarray(c)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 578, in __array__\n    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 583, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 794, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 664, in get_duck_array\n    array = array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 657, in get_duck_array\n    array = self.array[self.key]\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 103, in __getitem__\n    return indexing.explicit_indexing_adapter(\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 1018, in explicit_indexing_adapter\n    result = raw_indexing_method(raw_key.tuple)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 115, in _getitem\n    original_array = self.get_array(needs_lock=False)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 94, in get_array\n    ds = self.datastore._acquire(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 455, in _acquire\n    with self._manager.acquire_context(needs_lock) as root:\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/contextlib.py", line 135, in __enter__\n    return next(self.gen)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 199, in acquire_context\n    file, cached = self._acquire_with_cache_info(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 217, in _acquire_with_cache_info\n    file = self._opener(*self._args, **kwargs)\n  File "src/netCDF4/_netCDF4.pyx", line 2521, in netCDF4._netCDF4.Dataset.__init__\n  File "src/netCDF4/_netCDF4.pyx", line 2158, in netCDF4._netCDF4._ensure_nc_success\n'
+
+2025-03-14 21:52:26,704 - distributed.worker - ERROR - Worker stream died during communication: tcp://10.6.8.51:43563
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 861, in _read_to_buffer
+    bytes_read = self.read_from_fd(buf)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 1116, in read_from_fd
+    return self.socket.recv_into(buf, len(buf))
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2075, in gather_dep
+    response = await get_data_from_worker(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2881, in get_data_from_worker
+    response = await send_recv(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 1018, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc.__class__.__name__}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Ephemeral Worker->Worker for gather local=tcp://10.6.8.61:58064 remote=tcp://10.6.8.51:43563>: ConnectionResetError: [Errno 104] Connection reset by peer
+Exception ignored in: <function CachingFileManager.__del__ at 0x1501b51d24d0>
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 250, in __del__
+    self.close(needs_lock=False)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 234, in close
+    file.close()
+  File "src/netCDF4/_netCDF4.pyx", line 2669, in netCDF4._netCDF4.Dataset.close
+  File "src/netCDF4/_netCDF4.pyx", line 2636, in netCDF4._netCDF4.Dataset._close
+  File "src/netCDF4/_netCDF4.pyx", line 2164, in netCDF4._netCDF4._ensure_nc_success
+RuntimeError: NetCDF: HDF error
+2025-03-14 21:52:28,704 - distributed.worker - ERROR - Compute Failed
+Key:       ('concatenate-open_dataset-original-mean_chunk-9a2c82e37c1f5734a57bf6161f8826c9', 7, 0, 0)
+State:     executing
+Task:  <Task ('concatenate-open_dataset-original-mean_chunk-9a2c82e37c1f5734a57bf6161f8826c9', 7, 0, 0) _execute_subgraph(...)>
+Exception: "OSError(-101, 'NetCDF: HDF error')"
+Traceback: '  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/dask/array/core.py", line 133, in getter\n    c = np.asarray(c)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 578, in __array__\n    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 583, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 794, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 664, in get_duck_array\n    array = array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 657, in get_duck_array\n    array = self.array[self.key]\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 103, in __getitem__\n    return indexing.explicit_indexing_adapter(\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 1018, in explicit_indexing_adapter\n    result = raw_indexing_method(raw_key.tuple)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 115, in _getitem\n    original_array = self.get_array(needs_lock=False)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 94, in get_array\n    ds = self.datastore._acquire(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 455, in _acquire\n    with self._manager.acquire_context(needs_lock) as root:\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/contextlib.py", line 135, in __enter__\n    return next(self.gen)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 199, in acquire_context\n    file, cached = self._acquire_with_cache_info(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 217, in _acquire_with_cache_info\n    file = self._opener(*self._args, **kwargs)\n  File "src/netCDF4/_netCDF4.pyx", line 2521, in netCDF4._netCDF4.Dataset.__init__\n  File "src/netCDF4/_netCDF4.pyx", line 2158, in netCDF4._netCDF4._ensure_nc_success\n'
+
+2025-03-14 21:52:31,396 - distributed.worker - ERROR - Compute Failed
+Key:       ('concatenate-open_dataset-original-mean_chunk-12563bf06b4d86956a5e9fff5644d255', 9, 0, 0)
+State:     executing
+Task:  <Task ('concatenate-open_dataset-original-mean_chunk-12563bf06b4d86956a5e9fff5644d255', 9, 0, 0) _execute_subgraph(...)>
+Exception: "OSError(-101, 'NetCDF: HDF error')"
+Traceback: '  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/dask/array/core.py", line 133, in getter\n    c = np.asarray(c)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 578, in __array__\n    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 583, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 794, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 664, in get_duck_array\n    array = array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 657, in get_duck_array\n    array = self.array[self.key]\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 103, in __getitem__\n    return indexing.explicit_indexing_adapter(\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 1018, in explicit_indexing_adapter\n    result = raw_indexing_method(raw_key.tuple)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 115, in _getitem\n    original_array = self.get_array(needs_lock=False)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 94, in get_array\n    ds = self.datastore._acquire(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 455, in _acquire\n    with self._manager.acquire_context(needs_lock) as root:\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/contextlib.py", line 135, in __enter__\n    return next(self.gen)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 199, in acquire_context\n    file, cached = self._acquire_with_cache_info(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 217, in _acquire_with_cache_info\n    file = self._opener(*self._args, **kwargs)\n  File "src/netCDF4/_netCDF4.pyx", line 2521, in netCDF4._netCDF4.Dataset.__init__\n  File "src/netCDF4/_netCDF4.pyx", line 2158, in netCDF4._netCDF4._ensure_nc_success\n'
+
+corrupted double-linked list
+2025-03-14 21:53:10,847 - distributed.nanny - INFO - Worker process 3108076 was killed by signal 6
+2025-03-14 21:53:10,858 - distributed.nanny - WARNING - Restarting worker
+2025-03-14 21:53:12,262 - distributed.diskutils - INFO - Found stale lock file and directory '/scratch/cta5244/dask-workers/dask-scratch-space/worker-b30uyybk', purging
+2025-03-14 21:53:12,348 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.61:44559
+2025-03-14 21:53:12,348 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.61:44559
+2025-03-14 21:53:12,348 - distributed.worker - INFO -           Worker name:             SLURMCluster-0
+2025-03-14 21:53:12,348 - distributed.worker - INFO -          dashboard at:            10.6.8.61:46161
+2025-03-14 21:53:12,348 - distributed.worker - INFO - Waiting to connect to: tcp://146.186.150.13:41175
+2025-03-14 21:53:12,348 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:53:12,348 - distributed.worker - INFO -               Threads:                          1
+2025-03-14 21:53:12,349 - distributed.worker - INFO -                Memory:                   4.00 GiB
+2025-03-14 21:53:12,349 - distributed.worker - INFO -       Local Directory: /scratch/cta5244/dask-workers/dask-scratch-space/worker-2wvqjxwl
+2025-03-14 21:53:12,349 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:53:13,014 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-14 21:53:13,014 - distributed.worker - INFO -         Registered to: tcp://146.186.150.13:41175
+2025-03-14 21:53:13,014 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:53:13,015 - distributed.core - INFO - Starting established connection to tcp://146.186.150.13:41175
+2025-03-14 21:53:23,621 - distributed.worker - ERROR - Worker stream died during communication: tcp://10.6.8.65:32969
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 861, in _read_to_buffer
+    bytes_read = self.read_from_fd(buf)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 1116, in read_from_fd
+    return self.socket.recv_into(buf, len(buf))
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2075, in gather_dep
+    response = await get_data_from_worker(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2881, in get_data_from_worker
+    response = await send_recv(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 1018, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc.__class__.__name__}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Ephemeral Worker->Worker for gather local=tcp://10.6.8.61:40466 remote=tcp://10.6.8.65:32969>: ConnectionResetError: [Errno 104] Connection reset by peer
+2025-03-14 21:53:29,878 - distributed.worker - ERROR - Compute Failed
+Key:       ('concatenate-open_dataset-original-mean_chunk-011fa7adc5b06bef2327b44b0c2117c1', 15, 0, 0)
+State:     executing
+Task:  <Task ('concatenate-open_dataset-original-mean_chunk-011fa7adc5b06bef2327b44b0c2117c1', 15, 0, 0) _execute_subgraph(...)>
+Exception: "OSError(-101, 'NetCDF: HDF error')"
+Traceback: '  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/dask/array/core.py", line 133, in getter\n    c = np.asarray(c)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 578, in __array__\n    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 583, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 794, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 664, in get_duck_array\n    array = array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 657, in get_duck_array\n    array = self.array[self.key]\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 103, in __getitem__\n    return indexing.explicit_indexing_adapter(\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 1018, in explicit_indexing_adapter\n    result = raw_indexing_method(raw_key.tuple)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 115, in _getitem\n    original_array = self.get_array(needs_lock=False)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 94, in get_array\n    ds = self.datastore._acquire(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 455, in _acquire\n    with self._manager.acquire_context(needs_lock) as root:\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/contextlib.py", line 135, in __enter__\n    return next(self.gen)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 199, in acquire_context\n    file, cached = self._acquire_with_cache_info(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 217, in _acquire_with_cache_info\n    file = self._opener(*self._args, **kwargs)\n  File "src/netCDF4/_netCDF4.pyx", line 2521, in netCDF4._netCDF4.Dataset.__init__\n  File "src/netCDF4/_netCDF4.pyx", line 2158, in netCDF4._netCDF4._ensure_nc_success\n'
+
+2025-03-14 21:53:38,927 - distributed.nanny - INFO - Worker process 3110356 was killed by signal 11
+2025-03-14 21:53:38,935 - distributed.nanny - WARNING - Restarting worker
+2025-03-14 21:53:39,908 - distributed.diskutils - INFO - Found stale lock file and directory '/scratch/cta5244/dask-workers/dask-scratch-space/worker-5tptp7zw', purging
+2025-03-14 21:53:39,968 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.61:32885
+2025-03-14 21:53:39,968 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.61:32885
+2025-03-14 21:53:39,968 - distributed.worker - INFO -           Worker name:             SLURMCluster-0
+2025-03-14 21:53:39,968 - distributed.worker - INFO -          dashboard at:            10.6.8.61:43643
+2025-03-14 21:53:39,968 - distributed.worker - INFO - Waiting to connect to: tcp://146.186.150.13:41175
+2025-03-14 21:53:39,968 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:53:39,968 - distributed.worker - INFO -               Threads:                          1
+2025-03-14 21:53:39,968 - distributed.worker - INFO -                Memory:                   4.00 GiB
+2025-03-14 21:53:39,968 - distributed.worker - INFO -       Local Directory: /scratch/cta5244/dask-workers/dask-scratch-space/worker-awn999nq
+2025-03-14 21:53:39,969 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:53:40,464 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-14 21:53:40,465 - distributed.worker - INFO -         Registered to: tcp://146.186.150.13:41175
+2025-03-14 21:53:40,465 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:53:40,465 - distributed.core - INFO - Starting established connection to tcp://146.186.150.13:41175
+malloc(): unsorted double linked list corrupted
+2025-03-14 21:53:44,087 - distributed.nanny - INFO - Worker process 3110636 was killed by signal 6
+2025-03-14 21:53:44,100 - distributed.nanny - WARNING - Restarting worker
+2025-03-14 21:53:45,079 - distributed.diskutils - INFO - Found stale lock file and directory '/scratch/cta5244/dask-workers/dask-scratch-space/worker-05nr9qon', purging
+2025-03-14 21:53:45,138 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.61:42067
+2025-03-14 21:53:45,139 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.61:42067
+2025-03-14 21:53:45,139 - distributed.worker - INFO -           Worker name:             SLURMCluster-0
+2025-03-14 21:53:45,139 - distributed.worker - INFO -          dashboard at:            10.6.8.61:44123
+2025-03-14 21:53:45,139 - distributed.worker - INFO - Waiting to connect to: tcp://146.186.150.13:41175
+2025-03-14 21:53:45,139 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:53:45,139 - distributed.worker - INFO -               Threads:                          1
+2025-03-14 21:53:45,139 - distributed.worker - INFO -                Memory:                   4.00 GiB
+2025-03-14 21:53:45,139 - distributed.worker - INFO -       Local Directory: /scratch/cta5244/dask-workers/dask-scratch-space/worker-4wdyafpr
+2025-03-14 21:53:45,139 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:53:45,621 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-14 21:53:45,621 - distributed.worker - INFO -         Registered to: tcp://146.186.150.13:41175
+2025-03-14 21:53:45,621 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:53:45,622 - distributed.core - INFO - Starting established connection to tcp://146.186.150.13:41175
+malloc(): unsorted double linked list corrupted
+2025-03-14 21:55:33,911 - distributed.nanny - INFO - Worker process 3110791 was killed by signal 6
+2025-03-14 21:55:33,917 - distributed.nanny - WARNING - Restarting worker
+2025-03-14 21:55:35,230 - distributed.diskutils - INFO - Found stale lock file and directory '/scratch/cta5244/dask-workers/dask-scratch-space/worker-ps0e_z6o', purging
+2025-03-14 21:55:35,307 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.61:42585
+2025-03-14 21:55:35,307 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.61:42585
+2025-03-14 21:55:35,307 - distributed.worker - INFO -           Worker name:             SLURMCluster-0
+2025-03-14 21:55:35,307 - distributed.worker - INFO -          dashboard at:            10.6.8.61:42919
+2025-03-14 21:55:35,307 - distributed.worker - INFO - Waiting to connect to: tcp://146.186.150.13:41175
+2025-03-14 21:55:35,307 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:55:35,307 - distributed.worker - INFO -               Threads:                          1
+2025-03-14 21:55:35,307 - distributed.worker - INFO -                Memory:                   4.00 GiB
+2025-03-14 21:55:35,307 - distributed.worker - INFO -       Local Directory: /scratch/cta5244/dask-workers/dask-scratch-space/worker-zesekv84
+2025-03-14 21:55:35,307 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:55:35,949 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-14 21:55:35,950 - distributed.worker - INFO -         Registered to: tcp://146.186.150.13:41175
+2025-03-14 21:55:35,950 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:55:35,950 - distributed.core - INFO - Starting established connection to tcp://146.186.150.13:41175
+corrupted double-linked list
+2025-03-14 21:55:59,016 - distributed.nanny - INFO - Worker process 3112607 was killed by signal 6
+2025-03-14 21:55:59,018 - distributed.nanny - WARNING - Restarting worker
+2025-03-14 21:56:00,164 - distributed.diskutils - INFO - Found stale lock file and directory '/scratch/cta5244/dask-workers/dask-scratch-space/worker-gc6b2dqb', purging
+2025-03-14 21:56:00,239 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.61:43405
+2025-03-14 21:56:00,239 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.61:43405
+2025-03-14 21:56:00,239 - distributed.worker - INFO -           Worker name:             SLURMCluster-0
+2025-03-14 21:56:00,239 - distributed.worker - INFO -          dashboard at:            10.6.8.61:40031
+2025-03-14 21:56:00,239 - distributed.worker - INFO - Waiting to connect to: tcp://146.186.150.13:41175
+2025-03-14 21:56:00,239 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:56:00,239 - distributed.worker - INFO -               Threads:                          1
+2025-03-14 21:56:00,239 - distributed.worker - INFO -                Memory:                   4.00 GiB
+2025-03-14 21:56:00,239 - distributed.worker - INFO -       Local Directory: /scratch/cta5244/dask-workers/dask-scratch-space/worker-gza8qh0g
+2025-03-14 21:56:00,240 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:56:00,764 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-14 21:56:00,765 - distributed.worker - INFO -         Registered to: tcp://146.186.150.13:41175
+2025-03-14 21:56:00,765 - distributed.worker - INFO - -------------------------------------------------
+2025-03-14 21:56:00,765 - distributed.core - INFO - Starting established connection to tcp://146.186.150.13:41175
+2025-03-14 21:56:03,441 - distributed.worker - ERROR - Worker stream died during communication: tcp://10.6.8.58:42195
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 861, in _read_to_buffer
+    bytes_read = self.read_from_fd(buf)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/tornado/iostream.py", line 1116, in read_from_fd
+    return self.socket.recv_into(buf, len(buf))
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2075, in gather_dep
+    response = await get_data_from_worker(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/worker.py", line 2878, in get_data_from_worker
+    comm = await rpc.connect(worker)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 1539, in connect
+    return connect_attempt.result()
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/core.py", line 1429, in _connect
+    comm = await connect(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/core.py", line 377, in connect
+    handshake = await comm.read()
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc.__class__.__name__}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed)  local=tcp://10.6.8.61:53846 remote=tcp://10.6.8.58:42195>: ConnectionResetError: [Errno 104] Connection reset by peer
+2025-03-14 21:58:02,562 - distributed.worker - ERROR - Compute Failed
+Key:       ('concatenate-open_dataset-original-mean_chunk-11d03f1c6c4189c7343d076a6d3c8868', 23, 0, 0)
+State:     executing
+Task:  <Task ('concatenate-open_dataset-original-mean_chunk-11d03f1c6c4189c7343d076a6d3c8868', 23, 0, 0) _execute_subgraph(...)>
+Exception: "OSError(-101, 'NetCDF: HDF error')"
+Traceback: '  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/dask/array/core.py", line 133, in getter\n    c = np.asarray(c)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 578, in __array__\n    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 583, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 794, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 664, in get_duck_array\n    array = array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 657, in get_duck_array\n    array = self.array[self.key]\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 103, in __getitem__\n    return indexing.explicit_indexing_adapter(\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 1018, in explicit_indexing_adapter\n    result = raw_indexing_method(raw_key.tuple)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 115, in _getitem\n    original_array = self.get_array(needs_lock=False)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 94, in get_array\n    ds = self.datastore._acquire(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 455, in _acquire\n    with self._manager.acquire_context(needs_lock) as root:\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/contextlib.py", line 135, in __enter__\n    return next(self.gen)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 199, in acquire_context\n    file, cached = self._acquire_with_cache_info(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 217, in _acquire_with_cache_info\n    file = self._opener(*self._args, **kwargs)\n  File "src/netCDF4/_netCDF4.pyx", line 2521, in netCDF4._netCDF4.Dataset.__init__\n  File "src/netCDF4/_netCDF4.pyx", line 2158, in netCDF4._netCDF4._ensure_nc_success\n'
+
