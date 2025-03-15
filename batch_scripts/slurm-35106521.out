@@ -1,0 +1,33 @@
+2025-03-15 00:29:01,760 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.6.8.40:40791'
+2025-03-15 00:29:07,898 - distributed.worker - INFO -       Start worker at:      tcp://10.6.8.40:46737
+2025-03-15 00:29:07,902 - distributed.worker - INFO -          Listening to:      tcp://10.6.8.40:46737
+2025-03-15 00:29:07,902 - distributed.worker - INFO -           Worker name:             SLURMCluster-1
+2025-03-15 00:29:07,902 - distributed.worker - INFO -          dashboard at:            10.6.8.40:43485
+2025-03-15 00:29:07,902 - distributed.worker - INFO - Waiting to connect to:      tcp://10.6.8.36:33835
+2025-03-15 00:29:07,902 - distributed.worker - INFO - -------------------------------------------------
+2025-03-15 00:29:07,902 - distributed.worker - INFO -               Threads:                          1
+2025-03-15 00:29:07,902 - distributed.worker - INFO -                Memory:                  10.00 GiB
+2025-03-15 00:29:07,902 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-db23xw1_
+2025-03-15 00:29:07,902 - distributed.worker - INFO - -------------------------------------------------
+2025-03-15 00:29:10,789 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-03-15 00:29:10,790 - distributed.worker - INFO -         Registered to:      tcp://10.6.8.36:33835
+2025-03-15 00:29:10,790 - distributed.worker - INFO - -------------------------------------------------
+2025-03-15 00:29:10,790 - distributed.core - INFO - Starting established connection to tcp://10.6.8.36:33835
+Exception ignored in: <function CachingFileManager.__del__ at 0x14fe4a686050>
+Traceback (most recent call last):
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 250, in __del__
+    self.close(needs_lock=False)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 234, in close
+    file.close()
+  File "src/netCDF4/_netCDF4.pyx", line 2669, in netCDF4._netCDF4.Dataset.close
+  File "src/netCDF4/_netCDF4.pyx", line 2636, in netCDF4._netCDF4.Dataset._close
+  File "src/netCDF4/_netCDF4.pyx", line 2164, in netCDF4._netCDF4._ensure_nc_success
+RuntimeError: NetCDF: HDF error
+2025-03-15 00:29:28,538 - distributed.worker - ERROR - Compute Failed
+Key:       ('concatenate-mean_chunk-483777a324e1c4045bee044ee216ad13', 4, 0, 0)
+State:     executing
+Task:  <Task ('concatenate-mean_chunk-483777a324e1c4045bee044ee216ad13', 4, 0, 0) _execute_subgraph(...)>
+Exception: "OSError(-101, 'NetCDF: HDF error')"
+Traceback: '  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/dask/array/core.py", line 133, in getter\n    c = np.asarray(c)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 578, in __array__\n    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 583, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 794, in get_duck_array\n    return self.array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 664, in get_duck_array\n    array = array.get_duck_array()\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/variables.py", line 81, in get_duck_array\n    return self.func(self.array.get_duck_array())\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 657, in get_duck_array\n    array = self.array[self.key]\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 103, in __getitem__\n    return indexing.explicit_indexing_adapter(\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 1018, in explicit_indexing_adapter\n    result = raw_indexing_method(raw_key.tuple)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 115, in _getitem\n    original_array = self.get_array(needs_lock=False)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 94, in get_array\n    ds = self.datastore._acquire(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 455, in _acquire\n    with self._manager.acquire_context(needs_lock) as root:\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/contextlib.py", line 135, in __enter__\n    return next(self.gen)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 199, in acquire_context\n    file, cached = self._acquire_with_cache_info(needs_lock)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/file_manager.py", line 217, in _acquire_with_cache_info\n    file = self._opener(*self._args, **kwargs)\n  File "src/netCDF4/_netCDF4.pyx", line 2521, in netCDF4._netCDF4.Dataset.__init__\n  File "src/netCDF4/_netCDF4.pyx", line 2158, in netCDF4._netCDF4._ensure_nc_success\n'
+
+Error processing date 19920102: [Errno -101] NetCDF: HDF error: '/storage/group/pches/default/public/NLDAS/VIC/hourly/NLDAS_VIC0125_H.A19920102.1300.020.nc'
