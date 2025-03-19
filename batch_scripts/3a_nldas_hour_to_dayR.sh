@@ -16,6 +16,6 @@ conda activate pyWBM || { echo "Failed to activate pyWBM env"; exit 1; }
 
 # Run the Python script
 echo "Running Python script"
-python /storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/3a_nldas_hr_to_day.py || { echo "Python script execution failed"; exit 1; }
+python /storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/3a_nldas_soilm_hr_to_day.py || { echo "Python script execution failed"; exit 1; }
 echo "Job completed"
 

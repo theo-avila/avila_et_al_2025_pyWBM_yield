@@ -30,30 +30,30 @@ def average_hourly(date, model, nldas_path, out_path, log_path):
     output_file = f"{out_path}/NLDAS_{model}0125_H.A{yymmdd}.nc"
     
     # Skip processing if output already exists
-    #if os.path.isfile(output_file):
-    #    return None
-
-    # get all hourly files for the day (pattern must match the file naming convention)
-    files = sorted(glob.glob(f"{nldas_path}/NLDAS_{model}0125_H.A{yymmdd}*"))
-    
-    # Check if there are at least 23 files, otherwise log and exit
-    if len(files) < 23:
-        with open(f"{log_path}/NLDAS_{model}0125_H_{yymmdd}.txt", "w") as f:
-            f.write(f"Only {len(files)} files found")
+    if os.path.isfile(output_file):
         return None
-    
-    try:
+    else:
+        # get all hourly files for the day (pattern must match the file naming convention)
+        files = sorted(glob.glob(f"{nldas_path}/NLDAS_{model}0125_H.A{yymmdd}*"))
         
-        ds = xr.concat([xr.open_dataset(f) for f in files], dim="time")
-        ds = ds[['SoilM_0_100cm']]
+        # Check if there are at least 23 files, otherwise log and exit
+        if len(files) == 0:
+            with open(f"{log_path}/NLDAS_{model}0125_H_{yymmdd}.txt", "w") as f:
+                f.write(f"Only {len(files)} files found")
+            return None
         
-        daily_soilm = ds['SoilM_0_100cm'].resample(time="1D").mean(skipna=True)
-        daily_soilm.to_netcdf(output_file)
-    
-    except Exception as e:
-        with open(f"{log_path}/NLDAS_{model}0125_H_{yymmdd}.txt", "w") as f:
-            f.write(str(e))
-        return None
+        try:
+            
+            ds = xr.concat([xr.open_dataset(f) for f in files], dim="time")
+            ds = ds[['SoilM_0_100cm']]
+            
+            daily_soilm = ds['SoilM_0_100cm'].resample(time="1D").mean(skipna=True)
+            daily_soilm.to_netcdf(output_file)
+        
+        except Exception as e:
+            with open(f"{log_path}/NLDAS_{model}0125_H_{yymmdd}.txt", "w") as f:
+                f.write(str(e))
+            return None
     
 
 def day_iteration(year, model, nldas_path, out_path, log_path):
