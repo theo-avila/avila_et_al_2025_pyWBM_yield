@@ -34,3 +34,4 @@ this is the repository for avila et al 2026 pyWBM yields
 | 3a_nldas_hr_to_day.py | averages hourly -> daily nldas data (using sbatch 3a) |
 | 3b_compound_extremes_processing.ipynb | calculates mean soil moisture over historical period for nldas models |
 | 4_aggregation_fips.ipynb | takes gridded data to fips level for all 2a model inputs |
+| 5_implementation_2a.ipynb | implementation of haqiqi 2021 model 2a  |
