@@ -33,3 +33,4 @@ this is the repository for avila et al 2026 pyWBM yields
 | 2a_gdd_edd_calculation.ipynb | takes nldas forcing data and calculates growing degree days and extreme degree days |
 | 3a_nldas_hr_to_day.py | averages hourly -> daily nldas data (using sbatch 3a) |
 | 3b_compound_extremes_processing | calculates mean soil moisture over historical period for nldas models |
+| 4_aggregation_fips.ipynb | takes gridded data to fips level for all 2a model inputs |
