@@ -35,3 +35,13 @@ this is the repository for avila et al 2026 pyWBM yields
 | 3b_compound_extremes_processing.ipynb | calculates mean soil moisture over historical period for nldas models |
 | 4_aggregation_fips.ipynb | takes gridded data to fips level for all 2a model inputs |
 | 5_implementation_2a.ipynb | implementation of haqiqi 2021 model 2a  |
+
+
+
+## Recreate the environment
+
+To recreate the environment used in this research:
+
+```bash
+mamba env create -f environment_avila26.yml
+conda activate environmental_avila26```
