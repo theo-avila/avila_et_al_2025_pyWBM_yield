@@ -6,7 +6,7 @@ import datetime
 import dask
 import os
 
-def degreeDays(single_day, degree_day_method, kelvin_starting=True):
+def degreeDays(single_day, degree_day_method, kelvin_starting=True, nan_return=False):
     '''
     Calculates growing degree days, using a piecewise function, ASSUMING KELVIN STARTING
     
@@ -32,8 +32,9 @@ def degreeDays(single_day, degree_day_method, kelvin_starting=True):
         
     else:
         raise Exception(f'Invalid degree_day_method "{degree_day_method}", please specify either "gdd" or "edd"')
-        
-    gdd_ds = xr.full_like(single_day.tmax, 0.0)
+
+    fill_value = 0.0
+    gdd_ds = xr.full_like(single_day.tmax, fill_value)
 
     # b <= tmin
     b_lower_tmin = (single_day.tmin + single_day.tmax) / 2 - corn_baseline
@@ -52,7 +53,7 @@ def degreeDays(single_day, degree_day_method, kelvin_starting=True):
     gdd_ds = xr.where((single_day.tmin < corn_baseline) & (corn_baseline <= single_day.tmax), tmin_lower_b_lower_tmax, gdd_ds)
     
     # tmax < b 
-    gdd_ds = xr.where((single_day.tmax < corn_baseline), 0, gdd_ds)
+    gdd_ds = xr.where((single_day.tmax < corn_baseline), fill_value, gdd_ds)
     
     return gdd_ds
 
