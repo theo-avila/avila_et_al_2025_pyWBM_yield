@@ -15,7 +15,6 @@ echo "Activating WFPIenv"
 conda activate pyWBM || { echo "Failed to activate pyWBM env"; exit 1; }
 
 export PYTHONPATH=/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield:$PYTHONPATH
-export HDF5_USE_FILE_LOCKING=FALSE
 
 # Run the Python script
 echo "Running Python script"
