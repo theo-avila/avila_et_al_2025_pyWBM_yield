@@ -149,9 +149,10 @@ def process_model(model_name_i, initialization_i, ssp_i, ds_soilpyWBM_regrid, ds
     - dataset which has gdd, and binned edd 
     '''
     # this is the pyWBM combinations, eventually will need to be looped through 
-    ds_soilpyWBM_initial = xr.open_dataset(pywbm_combination_i)#.chunk({"lon": 100, "lat": 100, "time": "auto"})
-    ds_soilpyWBM_initial['time'] = ds_soilpyWBM_initial.indexes['time'].to_datetimeindex()
     
+    ds_soilpyWBM_initial = xr.open_dataset(pywbm_combination_i)
+    ds_soilpyWBM_initial['time'] = ds_soilpyWBM_initial.indexes['time'].to_datetimeindex()
+        
     ds_combined = None  
     
     # tmax file
@@ -203,12 +204,12 @@ from dask_jobqueue import SLURMCluster
 cluster = SLURMCluster(
     account="open",
     cores=2,
-    memory="97GiB",
+    memory="200GiB",
     walltime="03:00:00",
     processes=1
 )
 
-cluster.scale(jobs=8)
+cluster.scale(jobs=4)
 
 from dask.distributed import Client
 
@@ -226,12 +227,12 @@ ds_soil_normal_on_wbm_grid = ds_soil_normal.interp(
 ).persist()
 
 delayed_tasks = []
-for model_name_i in model_names:
+for model_name_i in model_names[:1]:
     for initialization_i in initializations:
-        for ssp_i in ssps:
+        for ssp_i in ssps[:1]:
             for time_frame_i in time_frames:
                 pywbm_combinations = sorted(glob.glob(f"{pyWBM_file_path_base}/{model_name_i}_{initialization_i}_ssp{ssp_i}_{nldas_lsm}*"))
-                for pywbm_combination_i in pywbm_combinations[:1]:
+                for pywbm_combination_i in pywbm_combinations:
                     
                     delayed_tasks.append(
                         dask.delayed(process_model)(
@@ -244,6 +245,7 @@ for model_name_i in model_names:
 # Compute all tasks in parallel
 
 results = dask.compute(*delayed_tasks)
+valid_results = [res for res in results if res is not None]
 
 # county level loading
 us_county = gpd.read_file(county_shp_path)
@@ -252,7 +254,7 @@ future_pyWBM_path = f"/storage/home/cta5244/work/pyWBM_yield_data/pyWBM_dday/"
 os.makedirs(future_pyWBM_path, exist_ok=True)
 
 # results holds the pyWBM combination of interest & the calculation for it as a tuple
-for (dask_delayed_task_i_model, pywbm_combination_corresponding, time_frame_i) in results:
+for (dask_delayed_task_i_model, pywbm_combination_corresponding, time_frame_i) in valid_results:
     combined_dataset_bins = dask.compute(dask_delayed_task_i_model.load())[0]
     
     weightmap = xa.pixel_overlaps(combined_dataset_bins, us_county)

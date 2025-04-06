@@ -1,0 +1,18 @@
+2025-04-06 02:05:44,468 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.6.1.205:34087'
+2025-04-06 02:05:46,072 - distributed.worker - INFO -       Start worker at:     tcp://10.6.1.205:39273
+2025-04-06 02:05:46,072 - distributed.worker - INFO -          Listening to:     tcp://10.6.1.205:39273
+2025-04-06 02:05:46,072 - distributed.worker - INFO -           Worker name:             SLURMCluster-0
+2025-04-06 02:05:46,072 - distributed.worker - INFO -          dashboard at:           10.6.1.205:43097
+2025-04-06 02:05:46,072 - distributed.worker - INFO - Waiting to connect to:      tcp://10.6.8.35:46377
+2025-04-06 02:05:46,072 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 02:05:46,072 - distributed.worker - INFO -               Threads:                          2
+2025-04-06 02:05:46,072 - distributed.worker - INFO -                Memory:                 200.00 GiB
+2025-04-06 02:05:46,072 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-0anxccg9
+2025-04-06 02:05:46,072 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 02:05:47,257 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-04-06 02:05:47,257 - distributed.worker - INFO -         Registered to:      tcp://10.6.8.35:46377
+2025-04-06 02:05:47,257 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 02:05:47,258 - distributed.core - INFO - Starting established connection to tcp://10.6.8.35:46377
+2025-04-06 02:05:50,871 - distributed.nanny - INFO - Worker process 2606132 was killed by signal 11
+2025-04-06 02:05:52,824 - distributed.nanny - WARNING - Restarting worker
+slurmstepd: error: *** JOB 36295246 ON p-sc-2435 CANCELLED AT 2025-04-06T02:05:52 ***

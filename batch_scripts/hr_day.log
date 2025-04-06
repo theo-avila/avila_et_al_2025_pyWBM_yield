@@ -1,14 +1,52 @@
 Sourcing Conda
 Activating WFPIenv
 Running Python script
-2025-04-05 22:25:36,750 - distributed.scheduler - ERROR - Task process_model-dd5005cd-8b5e-4346-9827-ec250668433e marked as failed because 4 workers died while trying to run it
-2025-04-05 22:25:36,751 - distributed.scheduler - ERROR - Task process_model-dfa3b495-94e6-43d6-8b49-64cdfbaf04f5 marked as failed because 4 workers died while trying to run it
 Traceback (most recent call last):
-  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/6_future_processing.py", line 250, in <module>
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/conventions.py", line 453, in decode_cf_variables
+    new_vars[k] = decode_cf_variable(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/conventions.py", line 294, in decode_cf_variable
+    var = times.CFDatetimeCoder(use_cftime=use_cftime).decode(var, name=name)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/times.py", line 1005, in decode
+    dtype = _decode_cf_datetime_dtype(data, units, calendar, self.use_cftime)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/coding/times.py", line 214, in _decode_cf_datetime_dtype
+    [first_n_items(values, 1) or [0], last_item(values) or [0]]
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/formatting.py", line 132, in last_item
+    return np.ravel(to_numpy(array[indexer])).tolist()
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/namedarray/pycompat.py", line 119, in to_numpy
+    data = np.asarray(data)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 578, in __array__
+    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 583, in get_duck_array
+    return self.array.get_duck_array()
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 657, in get_duck_array
+    array = self.array[self.key]
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 103, in __getitem__
+    return indexing.explicit_indexing_adapter(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/core/indexing.py", line 1018, in explicit_indexing_adapter
+    result = raw_indexing_method(raw_key.tuple)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 116, in _getitem
+    array = getitem(original_array, key)
+  File "src/netCDF4/_netCDF4.pyx", line 5079, in netCDF4._netCDF4.Variable.__getitem__
+  File "src/netCDF4/_netCDF4.pyx", line 6051, in netCDF4._netCDF4.Variable._get
+  File "src/netCDF4/_netCDF4.pyx", line 2164, in netCDF4._netCDF4._ensure_nc_success
+RuntimeError: NetCDF: HDF error
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/6_future_processing.py", line 247, in <module>
     results = dask.compute(*delayed_tasks)
   File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/dask/base.py", line 662, in compute
     results = schedule(dsk, keys, **kwargs)
-  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/distributed/client.py", line 2426, in _gather
-    raise exception.with_traceback(traceback)
-distributed.scheduler.KilledWorker: Attempted to run task 'process_model-dd5005cd-8b5e-4346-9827-ec250668433e' on 4 different workers, but all those workers died while running it. The last worker that attempt to run the task was tcp://10.6.8.135:33611. Inspecting worker logs is often a good next step to diagnose what went wrong. For more information see https://distributed.dask.org/en/stable/killed.html.
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/6_future_processing.py", line 153, in process_model
+    ds_soilpyWBM_initial = xr.open_dataset(pywbm_combination_i)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/api.py", line 670, in open_dataset
+    backend_ds = backend.open_dataset(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 681, in open_dataset
+    ds = store_entrypoint.open_dataset(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/store.py", line 47, in open_dataset
+    vars, attrs, coord_names = conventions.decode_cf_variables(
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/conventions.py", line 464, in decode_cf_variables
+    raise type(e)(f"Failed to decode variable {k!r}: {e}") from e
+RuntimeError: Failed to decode variable 'time': NetCDF: HDF error
 Python script execution failed

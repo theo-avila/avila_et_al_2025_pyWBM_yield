@@ -1,0 +1,29 @@
+2025-04-06 02:05:44,492 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.6.1.200:40489'
+2025-04-06 02:05:46,070 - distributed.worker - INFO -       Start worker at:     tcp://10.6.1.200:38869
+2025-04-06 02:05:46,070 - distributed.worker - INFO -          Listening to:     tcp://10.6.1.200:38869
+2025-04-06 02:05:46,070 - distributed.worker - INFO -           Worker name:             SLURMCluster-3
+2025-04-06 02:05:46,070 - distributed.worker - INFO -          dashboard at:           10.6.1.200:36785
+2025-04-06 02:05:46,070 - distributed.worker - INFO - Waiting to connect to:      tcp://10.6.8.35:46377
+2025-04-06 02:05:46,070 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 02:05:46,070 - distributed.worker - INFO -               Threads:                          2
+2025-04-06 02:05:46,070 - distributed.worker - INFO -                Memory:                 200.00 GiB
+2025-04-06 02:05:46,070 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-zu56sizy
+2025-04-06 02:05:46,070 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 02:05:46,655 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-04-06 02:05:46,656 - distributed.worker - INFO -         Registered to:      tcp://10.6.8.35:46377
+2025-04-06 02:05:46,656 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 02:05:46,656 - distributed.core - INFO - Starting established connection to tcp://10.6.8.35:46377
+2025-04-06 02:05:49,836 - distributed.worker - ERROR - Compute Failed
+Key:       process_model-fd05d5b9-a838-4aa2-8087-5fc9634d164a
+State:     executing
+Task:  <Task 'process_model-fd05d5b9-a838-4aa2-8087-5fc9634d164a' process_model(...)>
+Exception: 'RuntimeError("Failed to decode variable \'time\': NetCDF: HDF error")'
+Traceback: '  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/6_future_processing.py", line 153, in process_model\n    ds_soilpyWBM_initial = xr.open_dataset(pywbm_combination_i)\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/api.py", line 670, in open_dataset\n    backend_ds = backend.open_dataset(\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/netCDF4_.py", line 681, in open_dataset\n    ds = store_entrypoint.open_dataset(\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/backends/store.py", line 47, in open_dataset\n    vars, attrs, coord_names = conventions.decode_cf_variables(\n  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/xarray/conventions.py", line 464, in decode_cf_variables\n    raise type(e)(f"Failed to decode variable {k!r}: {e}") from e\n'
+
+/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/6_future_processing.py:154: RuntimeWarning: Converting a CFTimeIndex with dates from a non-standard calendar, 'noleap', to a pandas.DatetimeIndex, which uses dates from the standard calendar.  This may lead to subtle errors in operations that depend on the length of time between dates.
+  ds_soilpyWBM_initial['time'] = ds_soilpyWBM_initial.indexes['time'].to_datetimeindex()
+/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/6_future_processing.py:154: RuntimeWarning: Converting a CFTimeIndex with dates from a non-standard calendar, 'noleap', to a pandas.DatetimeIndex, which uses dates from the standard calendar.  This may lead to subtle errors in operations that depend on the length of time between dates.
+  ds_soilpyWBM_initial['time'] = ds_soilpyWBM_initial.indexes['time'].to_datetimeindex()
+/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/6_future_processing.py:154: RuntimeWarning: Converting a CFTimeIndex with dates from a non-standard calendar, 'noleap', to a pandas.DatetimeIndex, which uses dates from the standard calendar.  This may lead to subtle errors in operations that depend on the length of time between dates.
+  ds_soilpyWBM_initial['time'] = ds_soilpyWBM_initial.indexes['time'].to_datetimeindex()
+slurmstepd: error: *** JOB 36295245 ON p-sc-2430 CANCELLED AT 2025-04-06T02:05:52 ***

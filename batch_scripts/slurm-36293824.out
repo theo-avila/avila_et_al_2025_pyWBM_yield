@@ -1,0 +1,49 @@
+2025-04-06 01:24:39,188 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.6.1.162:36915'
+2025-04-06 01:24:40,749 - distributed.worker - INFO -       Start worker at:     tcp://10.6.1.162:46819
+2025-04-06 01:24:40,749 - distributed.worker - INFO -          Listening to:     tcp://10.6.1.162:46819
+2025-04-06 01:24:40,749 - distributed.worker - INFO -           Worker name:             SLURMCluster-2
+2025-04-06 01:24:40,749 - distributed.worker - INFO -          dashboard at:           10.6.1.162:35809
+2025-04-06 01:24:40,749 - distributed.worker - INFO - Waiting to connect to:      tcp://10.6.8.79:46415
+2025-04-06 01:24:40,749 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 01:24:40,749 - distributed.worker - INFO -               Threads:                          2
+2025-04-06 01:24:40,749 - distributed.worker - INFO -                Memory:                 200.00 GiB
+2025-04-06 01:24:40,749 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-mt8ap4vm
+2025-04-06 01:24:40,749 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 01:24:41,317 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-04-06 01:24:41,317 - distributed.worker - INFO -         Registered to:      tcp://10.6.8.79:46415
+2025-04-06 01:24:41,317 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 01:24:41,317 - distributed.core - INFO - Starting established connection to tcp://10.6.8.79:46415
+2025-04-06 01:24:43,941 - distributed.nanny - INFO - Worker process 1983646 was killed by signal 11
+2025-04-06 01:24:44,651 - distributed.nanny - WARNING - Restarting worker
+2025-04-06 01:24:46,014 - distributed.worker - INFO -       Start worker at:     tcp://10.6.1.162:38121
+2025-04-06 01:24:46,014 - distributed.worker - INFO -          Listening to:     tcp://10.6.1.162:38121
+2025-04-06 01:24:46,014 - distributed.worker - INFO -           Worker name:             SLURMCluster-2
+2025-04-06 01:24:46,014 - distributed.worker - INFO -          dashboard at:           10.6.1.162:38681
+2025-04-06 01:24:46,014 - distributed.worker - INFO - Waiting to connect to:      tcp://10.6.8.79:46415
+2025-04-06 01:24:46,014 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 01:24:46,014 - distributed.worker - INFO -               Threads:                          2
+2025-04-06 01:24:46,014 - distributed.worker - INFO -                Memory:                 200.00 GiB
+2025-04-06 01:24:46,014 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-yr12_s_f
+2025-04-06 01:24:46,014 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 01:24:46,398 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-04-06 01:24:46,399 - distributed.worker - INFO -         Registered to:      tcp://10.6.8.79:46415
+2025-04-06 01:24:46,399 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 01:24:46,399 - distributed.core - INFO - Starting established connection to tcp://10.6.8.79:46415
+2025-04-06 01:24:49,035 - distributed.nanny - INFO - Worker process 1983669 was killed by signal 11
+2025-04-06 01:24:49,325 - distributed.nanny - WARNING - Restarting worker
+2025-04-06 01:24:50,698 - distributed.worker - INFO -       Start worker at:     tcp://10.6.1.162:45177
+2025-04-06 01:24:50,698 - distributed.worker - INFO -          Listening to:     tcp://10.6.1.162:45177
+2025-04-06 01:24:50,698 - distributed.worker - INFO -           Worker name:             SLURMCluster-2
+2025-04-06 01:24:50,698 - distributed.worker - INFO -          dashboard at:           10.6.1.162:43241
+2025-04-06 01:24:50,698 - distributed.worker - INFO - Waiting to connect to:      tcp://10.6.8.79:46415
+2025-04-06 01:24:50,698 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 01:24:50,698 - distributed.worker - INFO -               Threads:                          2
+2025-04-06 01:24:50,699 - distributed.worker - INFO -                Memory:                 200.00 GiB
+2025-04-06 01:24:50,699 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-pjtswc9g
+2025-04-06 01:24:50,699 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 01:24:51,209 - distributed.worker - INFO - Starting Worker plugin shuffle
+2025-04-06 01:24:51,209 - distributed.worker - INFO -         Registered to:      tcp://10.6.8.79:46415
+2025-04-06 01:24:51,209 - distributed.worker - INFO - -------------------------------------------------
+2025-04-06 01:24:51,210 - distributed.core - INFO - Starting established connection to tcp://10.6.8.79:46415
+slurmstepd: error: *** JOB 36293824 ON p-sc-2392 CANCELLED AT 2025-04-06T01:45:47 ***
+2025-04-06 01:45:47,507 - distributed.worker - INFO - Stopping worker at tcp://10.6.1.162:45177. Reason: scheduler-close
