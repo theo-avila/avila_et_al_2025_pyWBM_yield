@@ -204,16 +204,22 @@ from dask_jobqueue import SLURMCluster
 cluster = SLURMCluster(
     account="open",
     cores=2,
-    memory="200GiB",
+    memory="100GiB",
     walltime="03:00:00",
     processes=1
 )
 
-cluster.scale(jobs=4)
+cluster.scale(jobs=8)
 
 from dask.distributed import Client
 
 client = Client(cluster)
+
+us_county = gpd.read_file(county_shp_path)
+us_county = us_county.to_crs("EPSG:4326")
+future_pyWBM_path = f"/storage/home/cta5244/work/pyWBM_yield_data/pyWBM_dday/"
+os.makedirs(future_pyWBM_path, exist_ok=True)
+
 
 # each loca2 file is 10GB (large)
 # first lets get some base pyWBM run, & base historical normal to use for future regridding
@@ -226,13 +232,14 @@ ds_soil_normal_on_wbm_grid = ds_soil_normal.interp(
     method="linear"  # or "nearest" if you prefer
 ).persist()
 
-delayed_tasks = []
-for model_name_i in model_names[:1]:
+for model_name_i in model_names:
     for initialization_i in initializations:
-        for ssp_i in ssps[:1]:
+        for ssp_i in ssps:
             for time_frame_i in time_frames:
                 pywbm_combinations = sorted(glob.glob(f"{pyWBM_file_path_base}/{model_name_i}_{initialization_i}_ssp{ssp_i}_{nldas_lsm}*"))
-                for pywbm_combination_i in pywbm_combinations:
+                for pywbm_combination_i in pywbm_combinations[:1]:
+                    # put the delayed_tasks in here to avoid race conditions / other multiple read issues
+                    delayed_tasks = []
                     
                     delayed_tasks.append(
                         dask.delayed(process_model)(
@@ -241,29 +248,18 @@ for model_name_i in model_names[:1]:
                             pywbm_combination_i, time_frame_i
                         )
                     )
-
-# Compute all tasks in parallel
-
-results = dask.compute(*delayed_tasks)
-valid_results = [res for res in results if res is not None]
-
-# county level loading
-us_county = gpd.read_file(county_shp_path)
-us_county = us_county.to_crs("EPSG:4326")
-future_pyWBM_path = f"/storage/home/cta5244/work/pyWBM_yield_data/pyWBM_dday/"
-os.makedirs(future_pyWBM_path, exist_ok=True)
-
-# results holds the pyWBM combination of interest & the calculation for it as a tuple
-for (dask_delayed_task_i_model, pywbm_combination_corresponding, time_frame_i) in valid_results:
-    combined_dataset_bins = dask.compute(dask_delayed_task_i_model.load())[0]
-    
-    weightmap = xa.pixel_overlaps(combined_dataset_bins, us_county)
-    aggregated = xa.aggregate(combined_dataset_bins, weightmap)
-    
-    ds_out = aggregated.to_dataset().to_dataframe()
-    ds_out = ds_out.reset_index().set_index(['fips','year'])
-    parameter_string = (pywbm_combination_corresponding.split("/"))
-    csv_output_file = f"{future_pyWBM_path}{parameter_string[-1][:-3]}_{time_frame_i}_ddaysm.csv"
-    ds_out.to_csv(csv_output_file, index=True)
+                    
+                    results = dask.compute(*delayed_tasks)
+                    for (dask_delayed_task_i_model, pywbm_combination_corresponding, time_frame_i) in results:
+                        combined_dataset_bins = dask.compute(dask_delayed_task_i_model.load())[0]
+                        
+                        weightmap = xa.pixel_overlaps(combined_dataset_bins, us_county)
+                        aggregated = xa.aggregate(combined_dataset_bins, weightmap)
+                        
+                        ds_out = aggregated.to_dataset().to_dataframe()
+                        ds_out = ds_out.reset_index().set_index(['fips','year'])
+                        parameter_string = (pywbm_combination_corresponding.split("/"))
+                        csv_output_file = f"{future_pyWBM_path}{parameter_string[-1][:-3]}_{time_frame_i}_ddaysm.csv"
+                        ds_out.to_csv(csv_output_file, index=True)
 
     
