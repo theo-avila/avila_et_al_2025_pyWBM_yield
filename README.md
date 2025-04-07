@@ -10,8 +10,6 @@ Theo C. Avila<sup>1*</sup>, David Lafferty<sup>2</sup>, Tahsina Alam<sup>3</sup>
 <sup>*</sup> corresponding author: ctavila2@illinois.edu
 
 
-this is the repository for avila et al 2026 pyWBM yields
-
 ### Input data
 | Dataset | Link | DOI | Notes |
 |---------|------|-----|-------|
@@ -25,6 +23,7 @@ this is the repository for avila et al 2026 pyWBM yields
 ### Script Order
 - Some downloading & preprocessing was done offline
 - Many files are not saved within the github repo so filepaths will need to be altered when neccesary
+- shell scripts used when applicable
 - Computations for this research were performed on the Pennsylvania State University’s Institute for Computational and Data Sciences’ Roar Collab supercomputer 
 
 | Script | Description |
