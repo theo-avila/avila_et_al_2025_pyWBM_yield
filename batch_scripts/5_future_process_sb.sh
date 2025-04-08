@@ -19,6 +19,6 @@ export PYTHONPATH=/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield:$PYTHO
 
 # Run the Python script
 echo "Running Python script"
-python /storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/6_future_processing.py || { echo "Python script execution failed"; exit 1; }
+python /storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/5_future_processing.py || { echo "Python script execution failed"; exit 1; }
 echo "Job completed"
 
