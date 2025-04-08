@@ -205,7 +205,7 @@ cluster = SLURMCluster(
     account="open",
     cores=2,
     memory="100GiB",
-    walltime="03:00:00",
+    walltime="24:00:00",
     processes=1
 )
 
