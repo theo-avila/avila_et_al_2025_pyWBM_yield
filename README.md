@@ -45,3 +45,24 @@ To recreate the environment used in this research:
 ```bash
 mamba env create -f environment_avila26.yml
 conda activate environmental_avila26
+
+### Econometric Model
+We are using a fixed effects model on Log(Corn Yields) (Haqiqi et al. 2021; Lafferty et al. 2021):
+
+\begin{equation}
+logY_{i,t} = \beta_{1}GDD_{i,t} + EDD_{binned} + \beta_{2}SM+ \beta_{3}SM^{2} + c_{i}
+\end{equation}
+\begin{equation}
+EDD_{binned} = \beta_{a}EDD^{a}_{i,t} + \beta_{b}EDD^{b}_{i,t} +\beta_{c}EDD^{c}_{i,t} + \beta_{d}EDD^{d}_{i,t} + \beta_{e}EDD^{e}_{i,t}
+\end{equation}
+\\
+$EDD_{binned}$ is Extreme Degree Days with corresponding soil moisture values. \\
+$a$ soil moisture above +75mm about normal\\
+$b$ soil moisture +25mm to +75mm about normal\\
+$c$ soil moisture is between -25mm to +25mm about normal\\
+$d$ soil moisture is between -75mm to -25mm about normal\\
+$e$ soil moisture is below -75mm about normal\\
+$GDD_{i,t}$ is growing degree days, i denotes state (county in this case), t denotes time which is sum over year\\
+$c_{i}$ is county level terms for time invariant effects \\
+$g_{s}(t)$ linear state level trend \\
+$f_{s}(t)$ quadratic state level trend \\
