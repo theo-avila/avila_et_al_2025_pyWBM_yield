@@ -49,13 +49,8 @@ conda activate environmental_avila26
 ## Econometric Model
 We are using a fixed effects model on Log(Corn Yields) (Haqiqi et al. 2021; Lafferty et al. 2021):
 
-$$
-logY_{i,t} = \beta_{1}GDD_{i,t} + EDD_{binned} + \beta_{2}SM+ \beta_{3}SM^{2} + c_{i}
-$$
-$$
-EDD_{binned} = \beta_{a}EDD^{a}_{i,t} + \beta_{b}EDD^{b}_{i,t} +\beta_{c}EDD^{c}_{i,t} + \beta_{d}EDD^{d}_{i,t} + \beta_{e}EDD^{e}_{i,t}
-$$
- <br>
+$$logY_{i,t} = \beta_{1}GDD_{i,t} + EDD_{binned} + \beta_{2}SM+ \beta_{3}SM^{2} + c_{i}$$ <br>
+$$EDD_{binned} = \beta_{a}EDD^{a}_{i,t} + \beta_{b}EDD^{b}_{i,t} +\beta_{c}EDD^{c}_{i,t} + \beta_{d}EDD^{d}_{i,t} + \beta_{e}EDD^{e}_{i,t}$$ <br>
 $$EDD_{binned}$$ is Extreme Degree Days with corresponding soil moisture values.  <br>
 $$a$$ soil moisture above +75mm about normal <br>
 $$b$$ soil moisture +25mm to +75mm about normal <br>
