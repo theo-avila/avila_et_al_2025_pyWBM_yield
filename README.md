@@ -44,4 +44,4 @@ To recreate the environment used in this research:
 
 ```bash
 mamba env create -f environment_avila26.yml
-conda activate environmental_avila26```
+conda activate environmental_avila26
