@@ -51,8 +51,8 @@ We are using a fixed effects model on Log(Corn Yields) (Haqiqi et al. 2021; Laff
 
 
 $$
-logY_{i,t} = \beta_{1}GDD_{i,t} + EDD_{binned} + \beta_{2}SM + \beta_{3}SM^{2} + f_{s}(t) + g_{s}(t) + c_{i}
-$$$$
+logY_{i,t} = \beta_{1}GDD_{i,t} + EDD_{binned} + \beta_{2}SM + \beta_{3}SM^{2} + f_{s}(t) + g_{s}(t) + c_{i} <br>
+
 EDD_{binned} = \beta_{a}EDD^{a}_{i,t} + \beta_{b}EDD^{b}_{i,t} +\beta_{c}EDD^{c}_{i,t} + \beta_{d}EDD^{d}_{i,t} + \beta_{e}EDD^{e}_{i,t}
 $$
 
