@@ -73,7 +73,7 @@ def day_iteration(year, model, nldas_path, out_path, log_path):
         start_dt += datetime.timedelta(days=1)
 
 
-NLDAS_lsm = 'VIC'
+NLDAS_lsm = 'NOAH'
 nldas_path = f"/storage/group/pches/default/public/NLDAS/{NLDAS_lsm}/hourly/"
 out_path = f"/storage/home/cta5244/work/pyWBM_yield_data/{NLDAS_lsm}_daily/"
 log_path = f"/storage/home/cta5244/work/pyWBM_yield_data/{NLDAS_lsm}_daily/log_path/"

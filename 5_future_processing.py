@@ -27,7 +27,7 @@ initializations = ["r1i1p1f1"]
 # loca2 is in chunks of ~30 years 
 time_frames = ["2015-2044", "2045-2074", "2075-2100"]
 
-nldas_lsm = "VIC"
+nldas_lsm = "NOAH"
 
 # this is the soil_moiture base path
 pyWBM_file_path_base = "/storage/group/pches/default/users/dcl5300/wbm_soilM_uc_2024_DATA/projections/eCONUS/out/LOCA2"
@@ -142,7 +142,7 @@ def process_model(model_name_i, initialization_i, ssp_i, ds_soilpyWBM_regrid, ds
     - initialization_i (i.e. r1i1p1f1)
     - ssp_i (i.e. 370)
     - ds_soilpyWBM_regrid which is some random pyWBM run which is regridded
-    - ds_soil_normal_on_wbm_grid which is soil normal for corresponding LSM, only VIC for now
+    - ds_soil_normal_on_wbm_grid which is soil normal for corresponding LSM
     - pywbm_combination_i which is the ith glob.glob sorted combination for the model, intitilaztion, etc. combination 
     - time_frame_i which is the ~30 year chunk that loca2 is saved in, passed in, iterated through outside loop
     outputs
@@ -232,6 +232,7 @@ ds_soil_normal_on_wbm_grid = ds_soil_normal.interp(
     method="linear"  # or "nearest" if you prefer
 ).persist()
 
+
 for model_name_i in model_names:
     for initialization_i in initializations:
         for ssp_i in ssps:
@@ -261,5 +262,3 @@ for model_name_i in model_names:
                         parameter_string = (pywbm_combination_corresponding.split("/"))
                         csv_output_file = f"{future_pyWBM_path}{parameter_string[-1][:-3]}_{time_frame_i}_ddaysm.csv"
                         ds_out.to_csv(csv_output_file, index=True)
-
-    

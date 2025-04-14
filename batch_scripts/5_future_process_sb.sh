@@ -11,8 +11,8 @@
 # Load Conda
 echo "Sourcing Conda"
 source $HOME/mambaforge/etc/profile.d/conda.sh || { echo "Failed to source conda.sh"; exit 1; }
-echo "Activating WFPIenv"
-conda activate pyWBM || { echo "Failed to activate pyWBM env"; exit 1; }
+echo "Activating pyWBM_copy"
+conda activate pyWBM_copy || { echo "Failed to activate pyWBM env"; exit 1; }
 
 export PYTHONPATH=/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield:$PYTHONPATH
 #export HDF5_USE_FILE_LOCKING=FALSE
