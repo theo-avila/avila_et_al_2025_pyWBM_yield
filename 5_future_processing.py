@@ -27,7 +27,7 @@ initializations = ["r1i1p1f1"]
 # loca2 is in chunks of ~30 years 
 time_frames = ["2015-2044", "2045-2074", "2075-2100"]
 
-nldas_lsm = "NOAH"
+nldas_lsm = "MOS"
 
 # this is the soil_moiture base path
 pyWBM_file_path_base = "/storage/group/pches/default/users/dcl5300/wbm_soilM_uc_2024_DATA/projections/eCONUS/out/LOCA2"
