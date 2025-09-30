@@ -369,6 +369,7 @@ for indx, results_h21_i in enumerate(results_h21_arr):
 
 # figure 1, uncertainty in response
 year_chunks = [(2015, 2025), (2025, 2035), (2035, 2045)]
+#year_chunks = [(2015, 2017), (2017, 2019), (2019, 2021)]
 
 time_frames = ["2015-2044"]#, "2045-2074", "2075-2100"]
 ssps = ['ssp245', 'ssp370']
@@ -419,9 +420,7 @@ for indx, label_i in enumerate(sm_labels):
         # labeling conventions, plotting historical shocks for all 
         hist_lbl = f'Historical' if not hist_labeled_once else '_nolegend_' # {min_hist_year}-{max_hist_year} for years
         kde_hist = gaussian_kde(hist_shock_i['shock'].values)
-        ax.plot(xs, kde_hist(xs), lw=2, label=hist_lbl, alpha=.7)
-        hist_labeled_once = True
-        for ssp_i in ssps[1:]:
+        for ssp_i in ssps[:1]:
             for model_name_i in unique_model_names:
                 all_pattern_245 = sorted(glob.glob(f"{csv_output_file}{model_name_i}_r1i1p1f1_{ssp_i}_{label_i}_kge_{time_frames[0]}_ddaysm.csv"))
                 for file_pattern_i in all_pattern_245[:1]:
@@ -432,9 +431,12 @@ for indx, label_i in enumerate(sm_labels):
                     single_model_all_shocks = (ws_futures.loc[(slice(None), slice(y0, y1-1), label_i)]['shock'].values)
                     kde = gaussian_kde(single_model_all_shocks)
                     lbl = f'{ssp_i} LOCA2' if not models_labeled_once else '_nolegend_'
-                    ax.plot(xs, kde(xs), label=lbl, lw=2, color='gray', alpha=.8)
+                    ax.plot(xs, kde(xs), label=lbl, lw=1, color='gray', alpha=.5)
                     models_labeled_once = True
-
+                    
+        ax.plot(xs, kde_hist(xs), lw=1.5, label=hist_lbl, alpha=.8)
+        hist_labeled_once = True
+        
     for ax in axes.flat:
         ax.label_outer()
 
@@ -456,4 +458,4 @@ yc_str = str(yc_str).replace(", ", "_")
 for char_i in ["(", ")", "[", "]"]:
     yc_str = str(yc_str).replace(char_i, "")
     
-plt.savefig(f"/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/0_uncertainity_figures/0_hist_shocks/1_n_panel_ssp370/weather_contribution_sm_futureshocks_{ssp_i}_{yc_str}.png")
+plt.savefig(f"/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/0_uncertainity_figures/0_hist_shocks/1_n_panel_ssp370/lw1_alpha5_weather_contribution_sm_futureshocks_{ssp_i}_{yc_str}.png")
