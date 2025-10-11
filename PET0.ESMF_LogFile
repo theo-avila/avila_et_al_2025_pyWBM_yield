@@ -1,0 +1,80 @@
+20251010 225107.920 ERROR            PET0 ESMCI_VM.C:2318 ESMCI::VM::getCurrent() Internal error: Bad condition  - - Could not determine current VM
+20251010 225107.921 ERROR            PET0 ESMCI_VM_F.C:1144 c_esmc_vmgetcurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225107.921 ERROR            PET0 ESMF_VM.F90:5642 ESMF_VMGetCurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225107.921 ERROR            PET0 ESMF_Grid.F90:29715 ESMF_GridCreateDistgridReg Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225107.921 ERROR            PET0 ESMF_Grid.F90:10892 ESMF_GridCreateNoPeriDimR Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225107.921 ERROR            PET0 ESMF_Grid_C.F90:78 f_esmf_gridcreatenoperidim Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225107.921 ERROR            PET0 ESMCI_Grid.C:259 ESMCI::Grid::createnoperidim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225107.921 ERROR            PET0 ESMC_Grid.C:83 ESMC_GridCreateNoPeriDim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225118.438 ERROR            PET0 ESMCI_VM.C:2318 ESMCI::VM::getCurrent() Internal error: Bad condition  - - Could not determine current VM
+20251010 225118.438 ERROR            PET0 ESMCI_VM_F.C:1144 c_esmc_vmgetcurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225118.438 ERROR            PET0 ESMF_VM.F90:5642 ESMF_VMGetCurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225118.438 ERROR            PET0 ESMF_Grid.F90:29715 ESMF_GridCreateDistgridReg Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225118.438 ERROR            PET0 ESMF_Grid.F90:10892 ESMF_GridCreateNoPeriDimR Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225118.438 ERROR            PET0 ESMF_Grid_C.F90:78 f_esmf_gridcreatenoperidim Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225118.438 ERROR            PET0 ESMCI_Grid.C:259 ESMCI::Grid::createnoperidim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225118.438 ERROR            PET0 ESMC_Grid.C:83 ESMC_GridCreateNoPeriDim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225132.233 ERROR            PET0 ESMCI_VM.C:2318 ESMCI::VM::getCurrent() Internal error: Bad condition  - - Could not determine current VM
+20251010 225132.233 ERROR            PET0 ESMCI_VM_F.C:1144 c_esmc_vmgetcurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225132.233 ERROR            PET0 ESMF_VM.F90:5642 ESMF_VMGetCurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225132.233 ERROR            PET0 ESMF_Grid.F90:29715 ESMF_GridCreateDistgridReg Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225132.233 ERROR            PET0 ESMF_Grid.F90:10892 ESMF_GridCreateNoPeriDimR Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225132.233 ERROR            PET0 ESMF_Grid_C.F90:78 f_esmf_gridcreatenoperidim Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225132.233 ERROR            PET0 ESMCI_Grid.C:259 ESMCI::Grid::createnoperidim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225132.233 ERROR            PET0 ESMC_Grid.C:83 ESMC_GridCreateNoPeriDim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225203.005 ERROR            PET0 ESMCI_VM.C:2318 ESMCI::VM::getCurrent() Internal error: Bad condition  - - Could not determine current VM
+20251010 225203.005 ERROR            PET0 ESMCI_VM_F.C:1144 c_esmc_vmgetcurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225203.005 ERROR            PET0 ESMF_VM.F90:5642 ESMF_VMGetCurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225203.005 ERROR            PET0 ESMF_Grid.F90:29715 ESMF_GridCreateDistgridReg Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225203.005 ERROR            PET0 ESMF_Grid.F90:10892 ESMF_GridCreateNoPeriDimR Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225203.005 ERROR            PET0 ESMF_Grid_C.F90:78 f_esmf_gridcreatenoperidim Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225203.005 ERROR            PET0 ESMCI_Grid.C:259 ESMCI::Grid::createnoperidim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 225203.005 ERROR            PET0 ESMC_Grid.C:83 ESMC_GridCreateNoPeriDim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230744.955 ERROR            PET0 ESMCI_VM.C:2318 ESMCI::VM::getCurrent() Internal error: Bad condition  - - Could not determine current VM
+20251010 230744.955 ERROR            PET0 ESMCI_VM_F.C:1144 c_esmc_vmgetcurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230744.955 ERROR            PET0 ESMF_VM.F90:5642 ESMF_VMGetCurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230744.955 ERROR            PET0 ESMF_Grid.F90:29715 ESMF_GridCreateDistgridReg Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230744.955 ERROR            PET0 ESMF_Grid.F90:10892 ESMF_GridCreateNoPeriDimR Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230744.955 ERROR            PET0 ESMF_Grid_C.F90:78 f_esmf_gridcreatenoperidim Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230744.955 ERROR            PET0 ESMCI_Grid.C:259 ESMCI::Grid::createnoperidim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230744.955 ERROR            PET0 ESMC_Grid.C:83 ESMC_GridCreateNoPeriDim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230837.561 ERROR            PET0 ESMCI_VM.C:2318 ESMCI::VM::getCurrent() Internal error: Bad condition  - - Could not determine current VM
+20251010 230837.561 ERROR            PET0 ESMCI_VM_F.C:1144 c_esmc_vmgetcurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230837.561 ERROR            PET0 ESMF_VM.F90:5642 ESMF_VMGetCurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230837.561 ERROR            PET0 ESMF_Grid.F90:29715 ESMF_GridCreateDistgridReg Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230837.561 ERROR            PET0 ESMF_Grid.F90:10892 ESMF_GridCreateNoPeriDimR Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230837.561 ERROR            PET0 ESMF_Grid_C.F90:78 f_esmf_gridcreatenoperidim Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230837.561 ERROR            PET0 ESMCI_Grid.C:259 ESMCI::Grid::createnoperidim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230837.561 ERROR            PET0 ESMC_Grid.C:83 ESMC_GridCreateNoPeriDim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230914.300 ERROR            PET0 ESMCI_VM.C:2318 ESMCI::VM::getCurrent() Internal error: Bad condition  - - Could not determine current VM
+20251010 230914.300 ERROR            PET0 ESMCI_VM_F.C:1144 c_esmc_vmgetcurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230914.300 ERROR            PET0 ESMF_VM.F90:5642 ESMF_VMGetCurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230914.300 ERROR            PET0 ESMF_Grid.F90:29715 ESMF_GridCreateDistgridReg Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230914.300 ERROR            PET0 ESMF_Grid.F90:10892 ESMF_GridCreateNoPeriDimR Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230914.300 ERROR            PET0 ESMF_Grid_C.F90:78 f_esmf_gridcreatenoperidim Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230914.300 ERROR            PET0 ESMCI_Grid.C:259 ESMCI::Grid::createnoperidim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 230914.300 ERROR            PET0 ESMC_Grid.C:83 ESMC_GridCreateNoPeriDim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231033.469 ERROR            PET0 ESMCI_VM.C:2318 ESMCI::VM::getCurrent() Internal error: Bad condition  - - Could not determine current VM
+20251010 231033.469 ERROR            PET0 ESMCI_VM_F.C:1144 c_esmc_vmgetcurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231033.469 ERROR            PET0 ESMF_VM.F90:5642 ESMF_VMGetCurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231033.469 ERROR            PET0 ESMF_Grid.F90:29715 ESMF_GridCreateDistgridReg Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231033.469 ERROR            PET0 ESMF_Grid.F90:10892 ESMF_GridCreateNoPeriDimR Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231033.469 ERROR            PET0 ESMF_Grid_C.F90:78 f_esmf_gridcreatenoperidim Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231033.469 ERROR            PET0 ESMCI_Grid.C:259 ESMCI::Grid::createnoperidim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231033.469 ERROR            PET0 ESMC_Grid.C:83 ESMC_GridCreateNoPeriDim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.375 ERROR            PET0 ESMCI_VM.C:2318 ESMCI::VM::getCurrent() Internal error: Bad condition  - - Could not determine current VM
+20251010 231043.375 ERROR            PET0 ESMCI_VM_F.C:1144 c_esmc_vmgetcurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.375 ERROR            PET0 ESMF_VM.F90:5642 ESMF_VMGetCurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.375 ERROR            PET0 ESMF_Grid.F90:29715 ESMF_GridCreateDistgridReg Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.375 ERROR            PET0 ESMF_Grid.F90:10892 ESMF_GridCreateNoPeriDimR Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.375 ERROR            PET0 ESMF_Grid_C.F90:78 f_esmf_gridcreatenoperidim Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.375 ERROR            PET0 ESMCI_Grid.C:259 ESMCI::Grid::createnoperidim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.375 ERROR            PET0 ESMC_Grid.C:83 ESMC_GridCreateNoPeriDim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.778 ERROR            PET0 ESMCI_VM.C:2318 ESMCI::VM::getCurrent() Internal error: Bad condition  - - Could not determine current VM
+20251010 231043.778 ERROR            PET0 ESMCI_VM_F.C:1144 c_esmc_vmgetcurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.778 ERROR            PET0 ESMF_VM.F90:5642 ESMF_VMGetCurrent() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.778 ERROR            PET0 ESMF_Grid.F90:29715 ESMF_GridCreateDistgridReg Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.778 ERROR            PET0 ESMF_Grid.F90:10892 ESMF_GridCreateNoPeriDimR Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.778 ERROR            PET0 ESMF_Grid_C.F90:78 f_esmf_gridcreatenoperidim Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.778 ERROR            PET0 ESMCI_Grid.C:259 ESMCI::Grid::createnoperidim() Internal error: Bad condition  - Internal subroutine call returned Error
+20251010 231043.778 ERROR            PET0 ESMC_Grid.C:83 ESMC_GridCreateNoPeriDim() Internal error: Bad condition  - Internal subroutine call returned Error
