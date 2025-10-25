@@ -640,7 +640,67 @@ for indx, label_i in enumerate(sm_labels):
     plt.savefig(f"/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/0_uncertainity_figures/0_hist_shocks/3_enso/enso_weather_contribution_sm_futureshocks_{ssp_i}_{label_i}_single_panel.png")
 
 
+for indx, label_i in enumerate(sm_labels[:1]):
+    plt.figure(figsize=(8,6))
+    plt.title(f'{year_min}-{year_max_p1-1} ssp370 All County Shocks', fontsize=16)
+    plt.xlabel("Log Corn Yields", fontsize=14)
+    plt.ylabel("Probability Density", fontsize=14)
+    
+    for ssp_i in ssps[1:]:
+        model_pos_shocks, model_neu_shocks, model_neg_shocks = [], [], []
+        for model_name_i in unique_model_names[:2]:
+            all_pattern_245 = sorted(glob.glob(f"{csv_output_file}{model_name_i}_r1i1p1f1_{ssp_i}_{label_i}_kge_{time_frames[0]}_ddaysm.csv"))
+            for file_pattern_i in all_pattern_245[:1]:
+                df_predictions_future, pattern_name = futureYield(file_pattern_i, results_h21_arr[indx], fixed_effects_no_time_unique_arr[indx])
+                ws_futures_list = weatherShock_df(label_i, df_predictions_future, df_set_index_i, hist_mean_exist=True, wf_fits=ws_all_hist)
+                ws_futures = pd.concat(ws_futures_list).sort_index()
 
+                # breaks into enso_phase response of yields
+                model_i = years_phase_enso_csv.loc[f"{model_name_i}_ssp370"]
+                m_pos = model_i[model_i["label"] == 1]
+                m_neg = model_i[model_i["label"] == -1]
+                m_neu = model_i[model_i["label"] == 0]
+                #
+                years_pos = m_pos.year.tolist()   
+                years_neg = m_neg.year.tolist()    
+                years_neu = m_neu.year.tolist()  
+                #
+                ws_futures = ws_futures.reset_index('year')
+                
+                # selecting by years
+                pos_shock_years = ws_futures[ws_futures["year"].isin(years_pos)].reset_index(['fips', 'sm_label']).set_index(['fips', 'year', 'sm_label'])
+                neg_shock_years = ws_futures[ws_futures["year"].isin(years_neg)].reset_index(['fips', 'sm_label']).set_index(['fips', 'year', 'sm_label'])
+                neu_shock_years = ws_futures[ws_futures["year"].isin(years_neu)].reset_index(['fips', 'sm_label']).set_index(['fips', 'year', 'sm_label'])
+
+                lbl = f'{ssp_i} LOCA2' if not models_labeled_once else '_nolegend_'
+
+                try:
+                    vals  = (pos_shock_years.loc[(slice(None), slice(year_min, year_max_p1-1), label_i)]['shock'].values)
+                    model_pos_shocks.extend(vals.tolist())
+                except KeyError as e:
+                    pass
+                try:
+                    vals  = (neu_shock_years.loc[(slice(None), slice(year_min, year_max_p1-1), label_i)]['shock'].values)
+                    model_neu_shocks.extend(vals.tolist())
+                except KeyError as e:
+                    pass
+                try:
+                    vals  = (neg_shock_years.loc[(slice(None), slice(year_min, year_max_p1-1), label_i)]['shock'].values)
+                    model_neg_shocks.extend(vals.tolist())
+                except KeyError as e:
+                    pass
+
+    h_eln = gaussian_kde(model_pos_shocks)
+    h_neu = gaussian_kde(model_neu_shocks)
+    h_lan = gaussian_kde(model_neg_shocks)
+    
+    h_eln, = plt.plot(xs, kde_pos(xs), lw=2, alpha=0.3, color="tab:red",  label="El Niño")                
+    h_neu, = plt.plot(xs, kde_neu(xs), lw=2, alpha=0.3, color="black",    label="Neutral")
+    h_lan, = plt.plot(xs, kde_neg(xs), lw=2, alpha=0.3, color="tab:blue", label="La Niña")
+    leg = plt.legend(handles=[h_neu, h_lan, h_eln], title=f"{label_i} ENSO phase", loc="upper left", frameon=True, fontsize=14)
+    
+    leg.get_title().set_fontsize(16)   
+    plt.savefig(f"/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/0_uncertainity_figures/0_hist_shocks/3_enso/enso_weather_contribution_sm_futureshocks_{ssp_i}_{label_i}_single_panel_single_kde.png")
 
 
 

@@ -46,13 +46,13 @@ for ssp in ssps[:1]:
                 if ('latitude' in ds_cmip6.coords) and (len(ds_cmip6.latitude.shape) == 1):
                     ds_cmip6 = ds_cmip6.rename({'latitude':'lat'})
                     ds_cmip6 = ds_cmip6.rename({'longitude':'lon'})
-                    ds_cmip6 = ds_cmip6.assign_coords(longitude=(ds_cmip6['lon'] % 360))
+                    ds_cmip6 = ds_cmip6.assign_coords(lon=(ds_cmip6['lon'] % 360))
                     lat = ds_cmip6['lat']
                     lon = ds_cmip6['lon']
                     lon2d, lat2d = xr.broadcast(lon, lat)
                     mask_n4 = ((lat2d >= -5) & (lat2d <= 5) & (lon2d >= 160) & (lon2d <= 210))
                 elif ('lat' in ds_cmip6.coords) and (len(ds_cmip6.lat.shape) == 1):
-                    ds_cmip6 = ds_cmip6.assign_coords(longitude=(ds_cmip6['lon'] % 360))
+                    ds_cmip6 = ds_cmip6.assign_coords(lon=(ds_cmip6['lon'] % 360))
                     lat = ds_cmip6['lat']
                     lon = ds_cmip6['lon']
                     lon2d, lat2d = xr.broadcast(lon, lat)
