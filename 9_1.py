@@ -600,7 +600,7 @@ for indx, label_i in enumerate(sm_labels):
     # labeling conventions, plotting historical shocks for all 
     hist_lbl = f'Hist. (Phase Bin)' if not hist_labeled_once else '_nolegend_' # {min_hist_year}-{max_hist_year} for years
     for ssp_i in ssps[1:]:
-        for model_name_i in unique_model_names:
+        for model_index_j, model_name_i in enumerate(unique_model_names):
             all_pattern_245 = sorted(glob.glob(f"{csv_output_file}{model_name_i}_r1i1p1f1_{ssp_i}_{label_i}_kge_{time_frames[0]}_ddaysm.csv"))
             for file_pattern_i in all_pattern_245[:1]:
                 df_predictions_future, pattern_name = futureYield(file_pattern_i, results_h21_arr[indx], fixed_effects_no_time_unique_arr[indx])
@@ -634,7 +634,7 @@ for indx, label_i in enumerate(sm_labels):
                     ax_scatter.scatter(
                         phase_idx, mean_series, s=75, alpha=.6,
                         color=phase_colors['model'],
-                        label='Model Shocks' if (phase_idx == 0 and indx == 0) else None
+                        label='Model Shocks' if (phase_idx == 0 and indx == 0 and model_index_j == 0) else None
                     )
                 except KeyError as e:
                     pass
@@ -693,7 +693,7 @@ for indx, label_i in enumerate(sm_labels):
     ax_scatter.set_xticklabels(phase_labels, fontsize=16)
     ax_scatter.set_ylabel('Log Corn Yields Shocks (Bu/Ac)', fontsize=16)
     ax_scatter.set_title('Mean Weather-Induced shock by ENSO phase', fontsize=16)
-    ax_scatter.legend(loc='upper right', fontsize=16)
+    ax_scatter.legend(loc='upper right', fontsize=14)
 
 fig.savefig(f"/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/0_uncertainity_figures/0_hist_shocks/3_enso/hist_bin_lw1_alpha5_weather_contribution_sm_futureshocks_{ssp_i}.png")
 fig_scatter.savefig(f"/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/0_uncertainity_figures/0_hist_shocks/3_enso/scatter_hist_bin_lw1_alpha5_weather_contribution_sm_futureshocks_{ssp_i}.png")
