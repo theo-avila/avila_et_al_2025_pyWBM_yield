@@ -1,4 +1,16 @@
 Sourcing Conda
 Activating WFPIenv
 Running Python script
-Job completed
+Traceback (most recent call last):
+  File "/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/9_0_weather_only_spatial_enso.py", line 727, in <module>
+    pos_shock_years = ws_all_hist_single[ws_all_hist_single["year"].isin(years_pos)].reset_index(['fips', 'sm_label']).set_index(['fips', 'year', 'sm_label'])
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/pandas/core/frame.py", line 6425, in reset_index
+    level = [self.index._get_level_number(lev) for lev in level]
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/pandas/core/frame.py", line 6425, in <listcomp>
+    level = [self.index._get_level_number(lev) for lev in level]
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 2017, in _get_level_number
+    self._validate_index_level(level)
+  File "/storage/home/cta5244/mambaforge/envs/pyWBM/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 2012, in _validate_index_level
+    raise KeyError(
+KeyError: 'Requested level (sm_label) does not match index name (fips)'
+Python script execution failed

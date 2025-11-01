@@ -703,7 +703,157 @@ for indx, label_i in enumerate(sm_labels[:1]):
     plt.savefig(f"/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/0_uncertainity_figures/0_hist_shocks/3_enso/enso_weather_contribution_sm_futureshocks_{ssp_i}_{label_i}_single_panel_single_kde.png")
 
 
+obs_enso_csv = "/storage/group/pches/default/users/cta5244/noaa_ersstv5/enso_JAS_years_by_model_4tenths_thr.csv"
+years_phase_enso_csv_hist = pd.read_csv(f"{obs_enso_csv}")
+years_phase_enso_csv_hist = years_phase_enso_csv_hist.set_index(['model'])
+xs = np.linspace(-1, 0.25, 400)
+out_path_hist = "/storage/group/pches/default/users/cta5244/noaa_ersstv5/noaa_ersstv5_oni.nc"
+oni_index_ts = xr.open_dataset(out_path_hist)
+#ws_all_hist_list = pd.concat(ws_all_hist).sort_index()
+ws_all_hist_single = ws_all_hist.loc[(slice(None), slice(None), 'VIC')]
+model_i = years_phase_enso_csv_hist
 
+m_pos = model_i[model_i["label"] == 1]
+m_neg = model_i[model_i["label"] == -1]
+m_neu = model_i[model_i["label"] == 0]
+#
+years_pos = m_pos.year.tolist()   
+years_neg = m_neg.year.tolist()    
+years_neu = m_neu.year.tolist()  
+#
+ws_all_hist_single = ws_all_hist_single.reset_index('year')
+
+# selecting by years
+pos_shock_years = ws_all_hist_single[ws_all_hist_single["year"].isin(years_pos)].reset_index(['fips', 'sm_label']).set_index(['fips', 'year', 'sm_label'])
+neg_shock_years = ws_all_hist_single[ws_all_hist_single["year"].isin(years_neg)].reset_index(['fips', 'sm_label']).set_index(['fips', 'year', 'sm_label'])
+neu_shock_years = ws_all_hist_single[ws_all_hist_single["year"].isin(years_neu)].reset_index(['fips', 'sm_label']).set_index(['fips', 'year', 'sm_label'])
+kde_pos_hist = gaussian_kde(pos_shock_years['shock'].values)
+kde_neu_hist = gaussian_kde(neu_shock_years['shock'].values)
+kde_neg_hist = gaussian_kde(neg_shock_years['shock'].values)
+
+# figure 1, uncertainty in response
+#year_chunks = [(2015, 2025), (2025, 2035), (2035, 2045)]
+phase_chunks = ['positive', 'negative', 'neutral']
+year_min = 2015
+year_max_p1 = 2045
+time_frames = ["2015-2044"]#, "2045-2074", "2075-2100"]
+ssps = ['ssp245', 'ssp370']
+xs = np.linspace(-1, 0.25, 400)
+
+unique_model_names = sorted({pattern.split("/")[-1].split("_")[0] for pattern in glob.glob(f"{csv_output_file}*")})
+
+fig = plt.figure(figsize=(12, 12))
+gs  = GridSpec(nrows=len(sm_labels), ncols=len(phase_chunks), figure=fig, wspace=0.025, hspace=0.025)
+
+# row 1 
+ax0 = fig.add_subplot(gs[0, 0])
+ax1 = fig.add_subplot(gs[0, 1], sharex=ax0, sharey=ax0)
+ax2 = fig.add_subplot(gs[0, 2], sharex=ax0, sharey=ax0)
+# row 2 
+ax3 = fig.add_subplot(gs[1, 0], sharex=ax0, sharey=ax0)
+ax4 = fig.add_subplot(gs[1, 1], sharex=ax0, sharey=ax0)
+ax5 = fig.add_subplot(gs[1, 2], sharex=ax0, sharey=ax0)
+# row 3 
+ax6 = fig.add_subplot(gs[2, 0], sharex=ax0, sharey=ax0)
+ax7 = fig.add_subplot(gs[2, 1], sharex=ax0, sharey=ax0)
+ax8 = fig.add_subplot(gs[2, 2], sharex=ax0, sharey=ax0)
+
+axes = np.array([[ax0, ax1, ax2],
+                 [ax3, ax4, ax5],
+                 [ax6, ax7, ax8]])
+
+
+for indx, label_i in enumerate(sm_labels):
+
+    fig.suptitle(f'Distribution of Weather-Induced Shocks (All Counties {year_min}-{year_max_p1-1})', fontsize=20, y=.93)
+    fig.supxlabel('Weather-Induced Log Corn Yields Shocks (Bu/Ac)', fontsize=20, y=.06)
+    fig.supylabel('Probability Density', fontsize=20, x=.08)
+    hist_labeled_once = False
+    models_labeled_once = False
+    
+    if indx == 0:
+        axes[indx, 0].set_title(f'El Niño', fontsize=16)
+        axes[indx, 1].set_title(f'Neutral', fontsize=16)
+        axes[indx, 2].set_title(f'La Niña', fontsize=16)
+        
+    # certain strings of importance w/ hist_shock_i as the appropriate historical shock
+    hist_shock_i = ws_all_hist.loc[slice(None), slice(None), label_i]
+    min_hist_year = hist_shock_i.reset_index('fips').index.min().item()
+    max_hist_year = hist_shock_i.reset_index('fips').index.max().item()
+    # labeling conventions, plotting historical shocks for all 
+    hist_lbl = f'Hist. (Phase Bin)' if not hist_labeled_once else '_nolegend_' # {min_hist_year}-{max_hist_year} for years
+    kde_hist = gaussian_kde(hist_shock_i['shock'].values)
+    for ssp_i in ssps[1:]:
+        for model_name_i in unique_model_names:
+            all_pattern_245 = sorted(glob.glob(f"{csv_output_file}{model_name_i}_r1i1p1f1_{ssp_i}_{label_i}_kge_{time_frames[0]}_ddaysm.csv"))
+            for file_pattern_i in all_pattern_245[:1]:
+                df_predictions_future, pattern_name = futureYield(file_pattern_i, results_h21_arr[indx], fixed_effects_no_time_unique_arr[indx])
+                ws_futures_list = weatherShock_df(label_i, df_predictions_future, df_set_index_i, hist_mean_exist=True, wf_fits=ws_all_hist)
+                ws_futures = pd.concat(ws_futures_list).sort_index()
+                model_i = years_phase_enso_csv.loc[f"{model_name_i}_ssp370"]
+                
+                m_pos = model_i[model_i["label"] == 1]
+                m_neg = model_i[model_i["label"] == -1]
+                m_neu = model_i[model_i["label"] == 0]
+                #
+                years_pos = m_pos.year.tolist()   
+                years_neg = m_neg.year.tolist()    
+                years_neu = m_neu.year.tolist()  
+                #
+                ws_futures = ws_futures.reset_index('year')
+                
+                # selecting by years
+                pos_shock_years = ws_futures[ws_futures["year"].isin(years_pos)].reset_index(['fips', 'sm_label']).set_index(['fips', 'year', 'sm_label'])
+                neg_shock_years = ws_futures[ws_futures["year"].isin(years_neg)].reset_index(['fips', 'sm_label']).set_index(['fips', 'year', 'sm_label'])
+                neu_shock_years = ws_futures[ws_futures["year"].isin(years_neu)].reset_index(['fips', 'sm_label']).set_index(['fips', 'year', 'sm_label'])
+
+                lbl = f'{ssp_i} LOCA2' if not models_labeled_once else '_nolegend_'
+
+                try:
+                    single_model_pos_shocks = (pos_shock_years.loc[(slice(None), slice(year_min, year_max_p1-1), label_i)]['shock'].values)
+                    kde_pos = gaussian_kde(single_model_pos_shocks)
+                    axes[indx, 0].plot(xs, kde_pos(xs), label=lbl, lw=1, color='gray', alpha=.8)
+                except KeyError as e:
+                    pass
+                    
+                try:
+                    single_model_neu_shocks = (neu_shock_years.loc[(slice(None), slice(year_min, year_max_p1-1), label_i)]['shock'].values)
+                    kde_neu = gaussian_kde(single_model_neu_shocks)
+                    axes[indx, 1].plot(xs, kde_neu(xs), label=lbl, lw=1, color='gray', alpha=.8)
+                except KeyError as e:
+                    pass
+
+                try:
+                    single_model_neg_shocks = (neg_shock_years.loc[(slice(None), slice(year_min, year_max_p1-1), label_i)]['shock'].values)
+                    kde_neg = gaussian_kde(single_model_neg_shocks)
+                    axes[indx, 2].plot(xs, kde_neg(xs), label=lbl, lw=1, color='gray', alpha=.8)
+                except KeyError as e:
+                    pass
+                
+                models_labeled_once = True
+                
+    axes[indx, 0].plot(xs, kde_pos_hist(xs), lw=1, label=hist_lbl, alpha=.8)
+    axes[indx, 1].plot(xs, kde_neu_hist(xs), lw=1, label=hist_lbl, alpha=.8)
+    axes[indx, 2].plot(xs, kde_neg_hist(xs), lw=1, label=hist_lbl, alpha=.8)
+    
+    hist_labeled_once = True
+    
+    for ax in axes.flat:
+        ax.label_outer()
+    
+    handles, labels = axes[0][0].get_legend_handles_labels()
+    leg = ax0.legend(handles, labels,
+                 loc='upper left',
+                 frameon=True, fontsize=12,
+                 title=f'Shocks', title_fontsize=12)
+    
+    ax_r = axes[indx, -1]                    
+    ax_r.yaxis.set_label_position("right")  
+    ax_r.set_ylabel(label_i, rotation=90, va='center', fontsize=20)
+    ax_r.yaxis.set_label_coords(1.08, 0.5)
+    ax_r.tick_params(axis='y', right=False, labelright=False)
+
+plt.savefig(f"/storage/home/cta5244/work/avila_et_al_2025_pyWBM_yield/0_uncertainity_figures/0_hist_shocks/3_enso/hist_bin_lw1_alpha5_weather_contribution_sm_futureshocks_{ssp_i}.png")
 
 
 
