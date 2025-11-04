@@ -34,7 +34,9 @@ Theo C. Avila<sup>1*</sup>, David Lafferty<sup>2</sup>, Ryan L. Sriver<sup>3</su
 | 4_aggregation_fips.ipynb | takes gridded data to fips level for all 2a model inputs |
 | 5_future_processing.py | calculates yearly fixed effect model regressors, aggregates for LOCA2 2015-2100 and pyWBM runs |
 | 6_implementation_2a.ipynb | implementation of haqiqi 2021 model 2a  |
-
+| 7_weather_only_shocks | Similar to 6a, but for weather contribution to shocks| 
+| 8_climate_mode_calculation | calculation of ONI index |
+| 9_weather_only_spatial | Similiar to 6a and 7, but includes climate mode index bins for CMIP6 models and their yield projection |
 
 
 ## Recreate the environment
